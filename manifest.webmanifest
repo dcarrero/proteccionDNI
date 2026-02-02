@@ -1,10 +1,13 @@
 {
-	"name": "Protege mi DNI",
-	"short_name": "Protege DNI",
+	"name": "ID: Protección DNI",
+	"short_name": "ID Protection",
 	"start_url": "index.html",
-	"description": "Genera una copia protegida del DNI",
+	"description": "Protege tu documento de identidad antes de compartirlo. Oculta datos privados y añade marcas de agua personalizadas. Protect your ID document before sharing. Hides private data and adds custom watermarks.",
 	"display": "standalone",
 	"scope": "/",
+	"theme_color": "#0D6EFD",
+	"background_color": "#ffffff",
+	"lang": "es",
 	"icons": [
 		{
 			"src": "icons/icon-512x512.webp",
@@ -17,5 +20,6 @@
 			"type": "image/webp",
 			"purpose": "maskable"
 		}
-	]
+	],
+	"categories": ["utilities", "security", "productivity"]
 }

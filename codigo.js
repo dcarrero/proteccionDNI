@@ -1,10 +1,11 @@
-﻿'use strict';
+'use strict';
 
 window.onerror = (a, b, c, d, e) => {
 	console.log(`Error message: ${a}`, `lineno: ${c}`, `colno: ${d}`);
 	console.error(e);
 
-	alert(`Error inesperado: ${a}`)
+	const msg = typeof i18n !== 'undefined' ? i18n.t('alert.error') : 'Error inesperado';
+	alert(`${msg}: ${a}`);
 };
 
 // Global vars to cache event state
@@ -59,6 +60,7 @@ let imagenDNI_BN = null;
 const SelectorFichero = document.getElementById('SelectorFichero');
 const Formato = document.getElementById('Formato');
 const Watermark = document.getElementById('Watermark');
+const Destinatario = document.getElementById('Destinatario');
 
 const Rotacion = document.getElementById('Rotacion');
 const Horizontal = document.getElementById('Horizontal');
@@ -74,12 +76,18 @@ let nombreFichero = '';
 // Ángulo de rotación del DNI (0, 90, 180, 270)
 let rotacion = 0;
 
-// Rellenar la lista de formatos de DNI automáticamente
-const opciones = [];
-for (const [key, value] of Object.entries(FormatosDnis)) {
-	opciones.push(`<option value='${key}'>${value.Nombre}</option>`);
+// Rellenar la lista de formatos de DNI automáticamente usando la función de formatos.js
+if (typeof generarOpcionesFormatos === 'function') {
+	Formato.innerHTML = generarOpcionesFormatos();
+} else {
+	// Fallback: generar opciones básicas
+	const opciones = [];
+	for (const [key, value] of Object.entries(FormatosDnis)) {
+		const nombre = value.NombreKey || value.Nombre || key;
+		opciones.push(`<option value='${key}'>${nombre}</option>`);
+	}
+	Formato.innerHTML = opciones.join('');
 }
-Formato.innerHTML = opciones.join('');
 
 // asignar escucha de eventos
 SelectorFichero.addEventListener('change', function (e) {
@@ -95,8 +103,6 @@ SelectorFichero.addEventListener('change', function (e) {
 });
 
 // botón "bonito" para el usuario
-//document.getElementById('ElegirFoto')
-//	.addEventListener('click', () => SelectorFichero.click());
 document.querySelector('#paso1 p')
 	.addEventListener('click', (ev) => {
 		SelectorFichero.click();
@@ -129,6 +135,13 @@ Watermark.addEventListener('input', function (e) {
 	CambiarEstadoBoton('4', true);
 });
 
+// Al escribir en Destinatario, actualizar el Watermark
+Destinatario.addEventListener('input', function (e) {
+	ActualizarWatermarkDesdeDestinatario();
+	DibujarMarcaAgua();
+	CambiarEstadoBoton('4', true);
+});
+
 // Al hacer click guardarla
 const botonGrabar = document.getElementById('Guardar');
 botonGrabar.addEventListener('click', GrabarImagen);
@@ -153,6 +166,8 @@ activarClickConTeclado(document.getElementById('cerrar'), () => DesactivarModoEd
 initGestures();
 
 configurarPantallaCompleta();
+
+configurarSelectorIdioma();
 
 // detectar si se ha cargado la página con un hash y abrir ese details
 const hash = document.location.hash;
@@ -249,6 +264,28 @@ activarClickConTeclado(Resetear, () => {
 //////////////////////////////////////
 
 /**
+ * Configura el selector de idioma
+ */
+function configurarSelectorIdioma() {
+	const selector = document.getElementById('LanguageSelect');
+	if (!selector || typeof i18n === 'undefined') return;
+
+	// Establecer el valor actual
+	selector.value = i18n.getLanguage();
+
+	// Escuchar cambios
+	selector.addEventListener('change', (e) => {
+		i18n.setLanguage(e.target.value);
+		// Actualizar selector de formatos
+		if (typeof actualizarSelectorFormatos === 'function') {
+			actualizarSelectorFormatos();
+		}
+		// Actualizar watermark si no ha sido modificado manualmente
+		AsignarWatermarkPorDefecto(Watermark);
+	});
+}
+
+/**
  * Cambiamos el estado de BotonPrincipal en el botón indicado
  * @param {any} selector
  * @param {any} paso
@@ -293,7 +330,7 @@ function configurarPantallaCompleta() {
 	});
 }
 /**
- * Detecta click o que activamos un elemento mediante el teclado con espacio o la tecla de enteer 
+ * Detecta click o que activamos un elemento mediante el teclado con espacio o la tecla de enteer
  * @param {any} elmto
  * @param {any} callback
  */
@@ -340,7 +377,8 @@ function activarWizard(step) {
 	}
 
 	if (!imagenDNI_BN) {
-		alert('Escoje primero la imagen de tu DNI');
+		const msg = typeof i18n !== 'undefined' ? i18n.t('alert.chooseImage') : 'Escoge primero la imagen de tu DNI';
+		alert(msg);
 		return;
 	}
 
@@ -366,7 +404,29 @@ function activarWizard(step) {
 		anterior = anterior.previousElementSibling;
 	}
 
+	actualizarProgresoWizard(parseInt(paso));
 	setTimeout(() => activarElementoWizard(paso), 50);
+}
+
+/**
+	Actualizar la barra de progreso visual del wizard
+*/
+function actualizarProgresoWizard(paso) {
+	const porcentajes = { 1: 0, 2: 25, 3: 50, 4: 75, 5: 100 };
+	const porcentaje = porcentajes[paso] || 0;
+
+	const barraFill = document.getElementById('wizardProgress');
+	const textoPercent = document.getElementById('wizardPercentage');
+	const wizardProgress = document.querySelector('.wizard-progress');
+
+	if (barraFill) barraFill.style.width = porcentaje + '%';
+	if (textoPercent) textoPercent.textContent = porcentaje + '%';
+
+	// Actualizar clase de progreso de línea
+	if (wizardProgress) {
+		wizardProgress.classList.remove('progress-0', 'progress-1', 'progress-2', 'progress-3', 'progress-4');
+		wizardProgress.classList.add('progress-' + (paso - 1));
+	}
 }
 
 /**
@@ -374,10 +434,6 @@ function activarWizard(step) {
 */
 function activarElementoWizard(paso) {
 	switch (paso) {
-		//		case '1':
-		//			SelectorFichero.click();
-		//			break;
-
 		case '2':
 			Formato.focus();
 			break;
@@ -409,9 +465,52 @@ function configurarCrearComposicion() {
 
 function AsignarWatermarkPorDefecto(input) {
 	const hoy = new Date();
-	const sp = new URLSearchParams(location.search)
-	const sufijo = sp.has('para') ? sp.get('para') : '…';
-	input.value = `Copia ${hoy.toISOString().substring(0, 10)} para ${sufijo}`;
+	const sp = new URLSearchParams(location.search);
+
+	// Aceptar múltiples nombres de parámetro: para, for, pour, per, für
+	const parametrosAceptados = ['para', 'for', 'pour', 'per', 'für', 'fur'];
+	let sufijo = '…';
+
+	for (const param of parametrosAceptados) {
+		if (sp.has(param)) {
+			sufijo = sp.get(param);
+			break;
+		}
+	}
+
+	// Si hay parámetro en URL, rellenar también el campo Destinatario
+	if (sufijo !== '…' && Destinatario) {
+		Destinatario.value = sufijo;
+	}
+
+	// Usar traducciones si están disponibles
+	let copyText = 'Copia';
+	let forText = 'para';
+
+	if (typeof i18n !== 'undefined') {
+		copyText = i18n.t('watermark.copy');
+		forText = i18n.t('watermark.for');
+	}
+
+	input.value = `${copyText} ${hoy.toISOString().substring(0, 10)} ${forText} ${sufijo}`;
+}
+
+/**
+ * Actualiza el campo Watermark cuando cambia el Destinatario
+ */
+function ActualizarWatermarkDesdeDestinatario() {
+	const hoy = new Date();
+	const destinatario = Destinatario.value.trim() || '…';
+
+	let copyText = 'Copia';
+	let forText = 'para';
+
+	if (typeof i18n !== 'undefined') {
+		copyText = i18n.t('watermark.copy');
+		forText = i18n.t('watermark.for');
+	}
+
+	Watermark.value = `${copyText} ${hoy.toISOString().substring(0, 10)} ${forText} ${destinatario}`;
 }
 
 /**
@@ -435,7 +534,7 @@ function girarDNI(ev) {
 	AjustarVisibilidadResetear();
 }
 
-/** 
+/**
 Al hacer doble click en el label, que vuelva a poner el control a 0
 */
 function configurarDobleClickComoReset(contenedor) {
@@ -469,7 +568,8 @@ function MostrarImagen(file) {
 				activarWizard(document.getElementById('step2'));
 			})
 			.catch(error => {
-				alert('Error preparando DNI \r\n' + error);
+				const msg = typeof i18n !== 'undefined' ? i18n.t('alert.preparingError') : 'Error preparando DNI';
+				alert(`${msg} \r\n${error}`);
 				console.error(error)
 			});
 
@@ -479,7 +579,8 @@ function MostrarImagen(file) {
 	}
 	img.onerror = function (e) {
 		console.log(e);
-		alert('Por favor, escoge una imagen válida');
+		const msg = typeof i18n !== 'undefined' ? i18n.t('alert.invalidImage') : 'Por favor, escoge una imagen válida';
+		alert(msg);
 	}
 	img.src = URL.createObjectURL(file);
 }
@@ -526,7 +627,8 @@ let procesadorDNI = CrearProcesador();
 
 function CrearProcesador() {
 	if (!window.Worker) {
-		alert('El navegador no soporta WebWorkers');
+		const msg = typeof i18n !== 'undefined' ? i18n.t('alert.noWorker') : 'El navegador no soporta WebWorkers';
+		alert(msg);
 		return null;
 	}
 
@@ -534,9 +636,11 @@ function CrearProcesador() {
 	if (document.location.protocol == 'file:') {
 		const metaCsp = document.getElementById('MetaCSP');
 		if (metaCsp) {
-			alert('Para poder ejecutar el programa desde tu ordenador necesitas eliminar la cabecera marcada como <meta id="MetaCSP"...>\r\n' +
+			const msg = typeof i18n !== 'undefined' ? i18n.t('alert.localFile') :
+				'Para poder ejecutar el programa desde tu ordenador necesitas eliminar la cabecera marcada como <meta id="MetaCSP"...>\r\n' +
 				'Se trata de una protección adicional para el servidor web, pero en local el navegador está aplicando otras restricciones que no son compatibles.\r\n' +
-				'Si no la eliminas, tendrás errores a continuación, o puede que no se muestre ningún error pero no veas tampoco la imagen de tu DNI (Firefox).');
+				'Si no la eliminas, tendrás errores a continuación, o puede que no se muestre ningún error pero no veas tampoco la imagen de tu DNI (Firefox).';
+			alert(msg);
 			return null;
 		}
 
@@ -554,7 +658,8 @@ function CrearProcesador() {
 		return new Worker('worker.js');
 	} catch (e) {
 		console.log(e);
-		alert('Error creando WebWorker\r\n' + e);
+		const msg = typeof i18n !== 'undefined' ? i18n.t('alert.workerError') : 'Error creando WebWorker';
+		alert(`${msg}\r\n${e}`);
 		return null;
 	}
 }
@@ -621,7 +726,7 @@ function RedibujarEnDNIEnRAF() {
 		// since the context is rotated, the image will be rotated also
 		ctxRotado.drawImage(canvasOrigen, - canvasOrigen.width / 2, - canvasOrigen.height / 2);
 
-		// we’re done with the rotating so restore the unrotated context
+		// we're done with the rotating so restore the unrotated context
 		ctxRotado.restore();
 
 		canvasOrigen = canvasGiro;
@@ -648,7 +753,7 @@ function RedibujarEnDNIEnRAF() {
 		// since the context is rotated, the image will be rotated also
 		ctxRotado.drawImage(canvasOrigen, - canvasOrigen.width / 2, - canvasOrigen.height / 2);
 
-		// we’re done with the rotating so restore the unrotated context
+		// we're done with the rotating so restore the unrotated context
 		ctxRotado.restore();
 		canvasOrigen = canvasAjusteAngulo;
 	}
@@ -682,7 +787,9 @@ function DibujarMascara() {
 
 	if (Validez.checked) {
 		const bloquesValidez = DatosFormato.DatosValidez;
-		bloquesValidez.forEach(DibujarRectangulo);
+		if (bloquesValidez) {
+			bloquesValidez.forEach(DibujarRectangulo);
+		}
 	}
 	if (EnmascararDni.checked) {
 		const bloquesDni = DatosFormato.MascarasDni;
@@ -813,10 +920,21 @@ Toma el nombre de ficheo actual y lo devuelve añadiendo el sufijo ' - protegido
 */
 function GenerarNombreFichero() {
 	const match = nombreFichero.match(/([^\/\\]+)(?=\.[^\.]+$)/)
-	if (match)
-		return match[1] + ' - protegido.jpg'
 
-	return 'protegido.jpg';
+	// Obtener el sufijo traducido
+	let suffix = 'protegido';
+	if (typeof i18n !== 'undefined') {
+		const filename = i18n.t('share.filename');
+		if (filename && filename !== 'share.filename') {
+			// Extraer el nombre sin extensión del filename traducido
+			suffix = filename.replace('.jpg', '');
+		}
+	}
+
+	if (match)
+		return `${match[1]} - ${suffix}.jpg`;
+
+	return `${suffix}.jpg`;
 }
 
 function GrabarImagen() {
@@ -826,7 +944,8 @@ function GrabarImagen() {
 		link.href = canvaComposicion.toDataURL('image/jpeg', 0.8);
 		link.click();
 	} catch (e) {
-		alert('No se ha podido generar la imagen\r\n' + e);
+		const msg = typeof i18n !== 'undefined' ? i18n.t('alert.generateError') : 'No se ha podido generar la imagen';
+		alert(`${msg}\r\n${e}`);
 	}
 	DesactivarModoEdicion();
 }
@@ -916,7 +1035,7 @@ function configurarCompartir() {
 
 	// Verificar si el navegador soporta compartir ficheros (Firefox no lo tiene implementado)
 	if (!navigator.canShare({
-		title: 'Copia de mi DNI',
+		title: 'Test',
 		files: [new File([''], 'test.jpg', { type: 'image/jpeg' })],
 	})) {
 		btnCompartir.remove();
@@ -928,14 +1047,18 @@ function configurarCompartir() {
 		try {
 			dataUrl = canvaComposicion.toDataURL('image/jpeg', 0.8);
 		} catch (e) {
-			alert('No se ha podido generar la imagen\r\n' + e);
+			const msg = typeof i18n !== 'undefined' ? i18n.t('alert.generateError') : 'No se ha podido generar la imagen';
+			alert(`${msg}\r\n${e}`);
+			return;
 		}
 
 		let blob;
 		try {
 			blob = await (await fetch(dataUrl)).blob();
 		} catch (e) {
-			alert('Error convirtiendo la imagen\r\n' + e);
+			const msg = typeof i18n !== 'undefined' ? i18n.t('alert.convertError') : 'Error convirtiendo la imagen';
+			alert(`${msg}\r\n${e}`);
+			return;
 		}
 		const file = new File(
 			[blob],
@@ -944,15 +1067,21 @@ function configurarCompartir() {
 				type: 'image/jpeg',
 			}
 		);
+
+		// Obtener textos traducidos
+		const shareTitle = typeof i18n !== 'undefined' ? i18n.t('share.title') : 'Copia de mi DNI';
+		const shareText = typeof i18n !== 'undefined' ? i18n.t('share.text') : 'Adjunto la copia de mi DNI para su uso exclusivo';
+
 		const shareData = {
-			title: 'Copia de mi DNI',
-			text: 'Adjunto la copia de mi DNI para su uso exclusivo',
+			title: shareTitle,
+			text: shareText,
 			files: [file],
 		}
 		try {
 			await navigator.share(shareData)
 		} catch (err) {
-			alert('Error: ' + err);
+			const msg = typeof i18n !== 'undefined' ? i18n.t('alert.shareError') : 'Error';
+			alert(`${msg}: ${err}`);
 		}
 		DesactivarModoEdicion();
 	});
@@ -1062,7 +1191,7 @@ function pointermoveHandler(ev) {
 }
 
 function pointerupHandler(ev) {
-	// Remove this pointer from the cache 
+	// Remove this pointer from the cache
 	const index = evCache.findIndex(
 		(cachedEv) => cachedEv.pointerId === ev.pointerId,
 	);
