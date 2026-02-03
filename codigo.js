@@ -264,25 +264,36 @@ activarClickConTeclado(Resetear, () => {
 //////////////////////////////////////
 
 /**
+ * Detecta el idioma actual basándose en la URL (no localStorage)
+ */
+function detectarIdiomaDeURL() {
+	const pathname = window.location.pathname;
+	const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
+	for (const lang of idiomasConCarpeta) {
+		if (pathname.includes(`/${lang}/`)) {
+			return lang;
+		}
+	}
+	return 'es'; // Raíz = español
+}
+
+/**
  * Configura el selector de idioma con redirección a carpetas
  */
 function configurarSelectorIdioma() {
 	const selector = document.getElementById('LanguageSelect');
-	if (!selector || typeof i18n === 'undefined') return;
+	if (!selector) return;
 
-	// Establecer el valor actual
-	selector.value = i18n.getLanguage();
+	// Detectar idioma actual por URL (no localStorage)
+	const idiomaActualURL = detectarIdiomaDeURL();
+	selector.value = idiomaActualURL;
 
 	// Escuchar cambios - redirigir a la carpeta del idioma
 	selector.addEventListener('change', (e) => {
 		const nuevoIdioma = e.target.value;
-		const idiomaActual = i18n.getLanguage();
 
-		// Si es el mismo idioma, no hacer nada
-		if (nuevoIdioma === idiomaActual) return;
-
-		// Guardar en localStorage para que se aplique al cargar
-		localStorage.setItem('protegemidni-lang', nuevoIdioma);
+		// Si es el mismo idioma que la URL actual, no hacer nada
+		if (nuevoIdioma === idiomaActualURL) return;
 
 		// Obtener la ruta actual
 		let pathname = window.location.pathname;
@@ -291,7 +302,6 @@ function configurarSelectorIdioma() {
 
 		// Quitar carpeta de idioma actual de la ruta si existe
 		for (const lang of idiomasConCarpeta) {
-			// Buscar /lang/ en cualquier parte de la ruta
 			const patron = new RegExp(`/${lang}(/|$)`);
 			if (patron.test(pathname)) {
 				pathname = pathname.replace(`/${lang}`, '');
