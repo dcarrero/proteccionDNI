@@ -284,31 +284,34 @@ function configurarSelectorIdioma() {
 		// Guardar en localStorage para que se aplique al cargar
 		localStorage.setItem('protegemidni-lang', nuevoIdioma);
 
-		// Construir la nueva URL
-		const baseUrl = window.location.origin + window.location.pathname;
-		const params = window.location.search; // Mantener parámetros como ?para=Hotel
-
-		// Detectar la ruta base (sin el idioma actual)
-		let rutaBase = baseUrl;
+		// Obtener la ruta actual
+		let pathname = window.location.pathname;
+		const params = window.location.search;
 		const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
 
-		// Quitar carpeta de idioma actual si existe
+		// Quitar carpeta de idioma actual de la ruta si existe
 		for (const lang of idiomasConCarpeta) {
-			const patron = new RegExp(`/${lang}/?$`);
-			if (patron.test(rutaBase)) {
-				rutaBase = rutaBase.replace(patron, '/');
+			// Buscar /lang/ en cualquier parte de la ruta
+			const patron = new RegExp(`/${lang}(/|$)`);
+			if (patron.test(pathname)) {
+				pathname = pathname.replace(`/${lang}`, '');
 				break;
 			}
+		}
+
+		// Asegurar que termina en /
+		if (!pathname.endsWith('/')) {
+			pathname += '/';
 		}
 
 		// Construir nueva URL según el idioma destino
 		let nuevaUrl;
 		if (nuevoIdioma === 'es') {
-			// Español va a la raíz
-			nuevaUrl = rutaBase + params;
+			// Español va a la ruta base (sin carpeta de idioma)
+			nuevaUrl = window.location.origin + pathname + params;
 		} else {
 			// Otros idiomas van a su carpeta
-			nuevaUrl = rutaBase + nuevoIdioma + '/' + params;
+			nuevaUrl = window.location.origin + pathname + nuevoIdioma + '/' + params;
 		}
 
 		// Redirigir
