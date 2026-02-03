@@ -264,24 +264,34 @@ activarClickConTeclado(Resetear, () => {
 //////////////////////////////////////
 
 /**
- * Configura el selector de idioma (cambio dinámico sin redirección)
+ * Configura el selector de idioma con redirección a carpetas
  */
 function configurarSelectorIdioma() {
 	const selector = document.getElementById('LanguageSelect');
-	if (!selector || typeof i18n === 'undefined') return;
+	if (!selector) return;
 
-	// Establecer el valor actual
-	selector.value = i18n.getLanguage();
-
-	// Escuchar cambios
+	// Escuchar cambios - redirigir a la carpeta del idioma
 	selector.addEventListener('change', (e) => {
-		i18n.setLanguage(e.target.value);
-		// Actualizar selector de formatos con nombres traducidos
-		if (typeof actualizarSelectorFormatos === 'function') {
-			actualizarSelectorFormatos();
+		const nuevoIdioma = e.target.value;
+		const params = window.location.search; // Mantener parámetros como ?para=Hotel
+
+		// Construir URL base (quitar carpeta de idioma actual si existe)
+		let basePath = window.location.pathname;
+		const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
+		for (const lang of idiomasConCarpeta) {
+			basePath = basePath.replace(new RegExp(`/${lang}/?$`), '/');
 		}
-		// Actualizar watermark por defecto
-		AsignarWatermarkPorDefecto(Watermark);
+		if (!basePath.endsWith('/')) basePath += '/';
+
+		// Construir nueva URL
+		let nuevaUrl;
+		if (nuevoIdioma === 'es') {
+			nuevaUrl = basePath + params;
+		} else {
+			nuevaUrl = basePath + nuevoIdioma + '/' + params;
+		}
+
+		window.location.href = nuevaUrl;
 	});
 }
 

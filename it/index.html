@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<title>Protezione ID - Proteggi il tuo documento d'identità</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="../estilos.css">
+	<link href="../favicon.ico" rel="icon">
+	<meta name="keywords" content="carta d'identità, sicurezza, condividere documento, protezione ID, ID protection, passport">
+	<meta name="description" content="Proteggi il tuo documento d'identità prima di condividerlo. Nascondi i dati privati, aggiungi filigrana personalizzata. Strumento gratuito, 100% offline, senza invio di dati.">
+	<meta name="robots" content="index, follow">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Protezione ID">
+	<meta property="og:locale" content="it_IT">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://password.es/id/it/">
+	<meta property="og:title" content="Protezione ID - Proteggi il tuo documento d'identità">
+	<meta property="og:description" content="Proteggi il tuo documento d'identità prima di condividerlo. Nascondi i dati privati, aggiungi filigrana personalizzata. Strumento gratuito, 100% offline.">
+	<meta property="og:site_name" content="Protezione ID">
+	<meta property="og:image" content="https://password.es/id/ejemplos/ejemplo-protegido.webp">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="625">
+	<meta property="og:image:alt" content="Esempio di documento d'identità protetto">
+	<link rel="canonical" href="https://password.es/id/it/" />
+	<link rel="alternate" hreflang="es" href="https://password.es/id/" />
+	<link rel="alternate" hreflang="en" href="https://password.es/id/en/" />
+	<link rel="alternate" hreflang="ca" href="https://password.es/id/ca/" />
+	<link rel="alternate" hreflang="gl" href="https://password.es/id/gl/" />
+	<link rel="alternate" hreflang="eu" href="https://password.es/id/eu/" />
+	<link rel="alternate" hreflang="fr" href="https://password.es/id/fr/" />
+	<link rel="alternate" hreflang="it" href="https://password.es/id/it/" />
+	<link rel="alternate" hreflang="pt" href="https://password.es/id/pt/" />
+	<link rel="alternate" hreflang="de" href="https://password.es/id/de/" />
+	<link rel="alternate" hreflang="x-default" href="https://password.es/id/" />
+
+	<link rel="manifest" href="../manifest.webmanifest">
+	<!-- Se si usa il file in locale, bisogna rimuovere questa linea, questo dovrebbe essere un HTTP Header ma GitHub pages non lo supporta https://github.com/orgs/community/discussions/54257 -->
+	<meta id="MetaCSP" http-equiv="Content-Security-Policy" content="script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self'; img-src 'self' blob: data:; media-src 'none'; font-src 'self'; connect-src data:; frame-src 'none'; object-src 'none'; form-action 'none'; " />
+	<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+</head>
+<body>
+	<!-- Barra di controllo superiore -->
+	<div class="top-controls">
+		<h1 class="site-title">Protezione ID</h1>
+		<!-- Selettore di lingua -->
+		<select id="LanguageSelect" aria-label="Seleziona lingua">
+			<option value="es">Español</option>
+			<option value="ca">Català</option>
+			<option value="gl">Galego</option>
+			<option value="eu">Euskara</option>
+			<option value="en">English</option>
+			<option value="fr">Français</option>
+			<option value="it" selected>Italiano</option>
+			<option value="pt">Português</option>
+			<option value="de">Deutsch</option>
+		</select>
+
+		<!-- Toggle del tema -->
+		<button type="button" id="ThemeToggle" class="control-btn theme-auto" data-i18n-title="theme.auto" title="Tema automatico">
+			<!-- Icona Auto (sole+luna) -->
+			<svg class="icon-auto" viewBox="0 0 24 24" width="20" height="20">
+				<path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8V4z"/>
+			</svg>
+			<!-- Icona Sole (tema chiaro) -->
+			<svg class="icon-light" viewBox="0 0 24 24" width="20" height="20">
+				<path d="M12 7a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-7v2m0 16v2M4 12H2m4.22-5.78L4.81 4.81m12.97 0-1.41 1.41M20 12h2m-4.22 5.78 1.41 1.41M6.22 17.78 4.81 19.19"/>
+			</svg>
+			<!-- Icona Luna (tema scuro) -->
+			<svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20">
+				<path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7 7 7 0 0 0 7 7 7 7 0 0 0 4.87-1.97A9 9 0 0 1 10.03 7.13 7 7 0 0 0 12 5z"/>
+			</svg>
+		</button>
+	</div>
+
+	<main>
+		<section id="introduccion" class="informacion">
+			<p data-i18n="intro.p1">
+				Questa pagina ti permette di nascondere facilmente i <a href="#porque" class="AbrirInfo">dati privati del tuo documento d'identità</a>.
+				A volte potrebbero chiederti una copia del documento, ma non dovresti mai inviare una foto così com'è perché se finisce nelle mani sbagliate può causarti gravi problemi.
+			</p>
+			<p data-i18n="intro.p2">Qui puoi bloccare i dati che non sono necessari e sovrascrivere un testo in modo che non possano usarlo per altri scopi, così l'immagine che condividi sarà unica per evitare che venga riutilizzata.</p>
+			<p>
+				<span data-i18n="intro.p3">Per iniziare, clicca sul pulsante per scegliere la foto e continua con i passaggi successivi.</span><br>
+				<span data-i18n="intro.p3.offline">Tutto questo processo viene eseguito solo nel tuo browser, nessun dato viene inviato da nessuna parte.</span>
+			</p>
+		</section>
+		<noscript>
+			<p data-i18n="noscript">
+				Questa pagina richiede l'attivazione di Javascript per funzionare. Tutto il processo avviene nel tuo browser ed è indispensabile l'uso di javascript.
+			</p>
+			<style type="text/css">
+				noscript p {
+					margin: 2em;
+					font-weight: bold;
+					text-align: center;
+				}
+
+				#pasos {
+					display: none;
+				}
+			</style>
+		</noscript>
+		<section id="pasos">
+			<a id="cerrar" data-i18n-title="nav.close" title="Chiudi progresso"><svg viewBox="0 0 12 12" role="presentation"><path d="M1,1 l 10,10 M1,11 l 10,-10" /></svg></a>
+			<div class="wizard-container">
+				<div class="wizard-progress">
+					<div class="step in-progress" id="step1">
+						<div class="node"></div>
+						<span class="step-name" data-i18n="step.photo">Foto</span>
+					</div>
+					<div class="step" id="step2">
+						<div class="node"></div>
+						<span class="step-name" data-i18n="step.type">Tipo</span>
+					</div>
+					<div class="step" id="step3">
+						<div class="node"></div>
+						<span class="step-name" data-i18n="step.position">Posizione</span>
+					</div>
+					<div class="step" id="step4">
+						<div class="node"></div>
+						<span class="step-name" data-i18n="step.text">Testo</span>
+					</div>
+					<div class="step" id="step5">
+						<div class="node"></div>
+						<span class="step-name" data-i18n="step.save">Salva</span>
+					</div>
+				</div>
+				<div class="wizard-percentage">
+					<div class="percentage-bar">
+						<div class="percentage-fill" id="wizardProgress"></div>
+					</div>
+					<span class="percentage-text" id="wizardPercentage">0%</span>
+				</div>
+			</div>
+
+			<details id="paso1" name="paso" open>
+				<summary data-i18n="step1.title">Foto</summary>
+				<div>
+					<p class="centrado"><button class="btn BotonPrincipal" type="button" id="ElegirFoto"><span data-i18n="step1.button">Scegli la foto</span></button></p>
+					<div id="DivFichero"><input type="file" id="SelectorFichero" accept="image/*" title="Selettore foto (non visibile)" tabindex="-1" aria-hidden="true"></div>
+				</div>
+			</details>
+			<details id="paso2" name="paso">
+				<summary data-i18n="step2.title">Tipo di foto</summary>
+				<div>
+					<p data-i18n="step2.description">
+						Scegli se stai usando la foto anteriore o posteriore del documento; puoi regolare la dimensione e la posizione del documento qui sotto.
+					</p>
+					<div><label for="Formato" data-i18n="step2.format.label">Tipo di foto</label> <select id="Formato"></select></div>
+					<div id="DivValidez" class="CampoCheckbox Oculto"><label for="Validez" data-i18n="step2.validity.label">Nascondi Data di Nascita, Validità e N° Supporto</label> <span><input type="checkbox" id="Validez"> <a href="#OcultarNumeroSoporte" id="AyudaOcultarNumeroSoporte" class="AbrirInfo" data-i18n="step2.validity.help">cos'è questo?</a></span></div>
+					<div id="DivMascaraDni" class="CampoCheckbox Oculto"><label for="EnmascararDni" data-i18n="step2.mask.label">Nascondi parzialmente il numero documento</label> <span><input type="checkbox" id="EnmascararDni"> <a href="#OcultarParcialmente" id="AyudaOcultarParcialmente" class="AbrirInfo" data-i18n="step2.mask.help">cos'è questo?</a></span></div>
+					<div class="Siguiente">
+						<button class="btn atras" type="button" data-siguiente="1"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Precedente</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="3"><span><span data-i18n="nav.next">Successivo</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+					</div>
+				</div>
+			</details>
+			<details id="paso3" name="paso">
+				<summary data-i18n="step3.title">Posizione</summary>
+				<div>
+					<p data-i18n="step3.description">Regola l'orientamento e la posizione in modo che il documento sia visualizzato correttamente.</p>
+					<div id="ControlesDesplazamiento">
+						<div class="ContenedorControl"><label for="Zoom" data-i18n="step3.zoom">Zoom</label> <input type="range" min="0.8" max="2" id="Zoom" value="1" step="any"></div>
+						<div class="ContenedorControl"><label for="Rotacion" data-i18n="step3.rotate">Ruota</label> <input type="range" min="-10" max="10" id="Rotacion" value="0" step="any"></div>
+						<div class="ContenedorControl"><label for="Horizontal" data-i18n="step3.horizontal">Spost. Orizzontale</label> <input type="range" min="-200" max="200" id="Horizontal" value="0"></div>
+						<div class="ContenedorControl"><label for="Vertical" data-i18n="step3.vertical">Spost. Verticale</label> <input type="range" min="-200" max="200" id="Vertical" value="0"></div>
+					</div>
+					<div class="Siguiente">
+						<button class="btn atras" type="button" data-siguiente="2"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Precedente</span></span></button>
+						<button class="btn adelante BotonPrincipal" type="button" data-siguiente="4"><span><span data-i18n="nav.next">Successivo</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+					</div>
+				</div>
+			</details>
+			<details id="paso4" name="paso">
+				<summary data-i18n="step4.title">Testo</summary>
+				<div>
+					<p data-i18n="step4.description">Scrivi un testo da aggiungere sull'immagine.</p>
+					<div class="ContenedorControl"><label for="Destinatario" data-i18n="step4.recipient.label">Destinatario:</label> <input type="text" id="Destinatario" data-i18n-placeholder="step4.recipient.placeholder" placeholder="Es: Hotel California, Banca X..."></div>
+					<div class="ContenedorControl"><label for="Watermark" data-i18n="step4.watermark.label">Testo completo:</label> <input type="text" id="Watermark" data-i18n-placeholder="step4.watermark.default" value="Copia per …"></div>
+					<p class="texto-ayuda" data-i18n="step4.help">Il destinatario viene aggiunto automaticamente al testo. Puoi modificare direttamente il testo completo.</p>
+					<div class="Siguiente">
+						<button class="btn atras" type="button" data-siguiente="3"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Precedente</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="5"><span><span data-i18n="nav.next">Successivo</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+					</div>
+				</div>
+			</details>
+			<details id="paso5" name="paso">
+				<summary data-i18n="step5.title">Salva</summary>
+				<div>
+					<p data-i18n="step5.description">Scegli ora se vuoi salvare l'immagine o condividerla direttamente con un'app (se il tuo browser lo supporta).</p>
+					<p class="centrado">
+						<button class="btn BotonPrincipal" type="button" id="Guardar"><span><span data-i18n="step5.save">Salva</span><svg viewBox="0 0 24 24" role="presentation"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" /></svg></span></button>
+						<button class="btn BotonPrincipal" type="button" id="Compartir"><span><span data-i18n="step5.share">Condividi</span><svg viewBox="0 0 24 24" role="presentation"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 00-3 3 3 3 0 003 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0018 16.08z" /></svg></span></button>
+					</p>
+					<a id="grabar"></a>
+				</div>
+			</details>
+			<div id="Previsualizacion">
+				<canvas id="canvas" width="1000" height="625"></canvas>
+				<div id="ControlesPosicion" class="ControlesSuperpuestos">
+					<div class="BloqueBotones">
+						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateLeft" title="Ruota a sinistra" data-giro="-90"><svg viewBox="0 0 24 24"><path d="M13 4.07V1L8.45 5.55 13 10V6.09a6 6 0 0 1 0 11.82v2.02a7.99 7.99 0 0 0 0-15.86M7.1 18.32a7.92 7.92 0 0 0 3.9 1.61V17.9a5.91 5.91 0 0 1-2.46-1.03L7.1 18.32M6.09 13H4.07a7.9 7.9 0 0 0 1.62 3.89l1.41-1.42A6 6 0 0 1 6.09 13m1.02-4.47L5.7 7.11A7.92 7.92 0 0 0 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47Z" /></svg></button>
+						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateRight" title="Ruota a destra" data-giro="90"><svg viewBox="0 0 24 24"><path d="m16.89 15.5 1.42 1.39A7.9 7.9 0 0 0 19.93 13h-2.02a6.08 6.08 0 0 1-1.02 2.5M13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03m6.93-6.9a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47m-2.36-5.45L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45Z" /></svg></button>
+					</div>
+					<button type="button" id="Resetear" class="IconoAccion" data-i18n-title="controls.reset" title="Annulla modifiche di dimensione e posizione"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" /></svg></button>
+				</div>
+				<div id="ControlesPantalla" class="ControlesSuperpuestos">
+					<button type="button" id="Expandir" class="IconoAccion" data-i18n-title="controls.expand" title="Espandi a schermo intero"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5V5m9 0h5v5h-2V7h-3V5m3 9h2v5h-5v-2h3v-3m-7 3v2H5v-5h2v3h3Z" /></svg></button>
+					<button type="button" id="Colapsar" class="IconoAccion" data-i18n-title="controls.collapse" title="Torna alla vista normale"><svg viewBox="0 0 24 24"><path d="M14 14h5v2h-3v3h-2v-5m-9 0h5v5H8v-3H5v-2m3-9h2v5H5V8h3V5m11 3v2h-5V5h2v3h3Z" /></svg></button>
+				</div>
+			</div>
+		</section>
+
+		<aside id="FAQ" class="informacion">
+			<h2 data-i18n="faq.title">Domande e risposte</h2>
+			<details>
+				<summary data-i18n="faq.q1">Cosa fa questa pagina?</summary>
+				<div class="respuesta" data-i18n="faq.a1">
+					<p>Si tratta di seguire i passaggi raccomandati dalla polizia per proteggere il tuo documento d'identità, senza dover ricordare tutto e sapere quali dati sono importanti.</p>
+					<ol>
+						<li>Scegli una foto del tuo documento. L'immagine viene convertita in bianco e nero e la sua dimensione viene limitata per non fornire una copia di alta qualità.</li>
+						<li>Scegli il formato del documento che hai e se è il lato anteriore o posteriore. In base a questo vengono nascosti i dati che nessuno ha bisogno di vedere.</li>
+						<li>Regola se necessario la posizione della foto in modo che sia visualizzata correttamente nell'anteprima.</li>
+						<li>Aggiungi un testo che verrà sovrascritto come filigrana, indicando per cosa condividi la foto.</li>
+						<li>Clicca sul pulsante per scaricare la foto.</li>
+					</ol>
+				</div>
+			</details>
+			<details id="porque">
+				<summary data-i18n="faq.q2">Perché usarla?</summary>
+				<div class="respuesta">
+					<p data-i18n="faq.a2.part1">
+						Condividere il tuo documento d'identità comporta il rischio che finisca nelle mani sbagliate e tu possa subire un <a href="https://www.garanteprivacy.it/temi/furto-di-identita" target="_blank">furto d'identità</a>.
+						In generale, le aziende <b>non</b> dovrebbero avere accesso alla maggior parte dei dati del tuo documento.
+						Ci sono già stati casi di <a href="https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9833530" target="_blank">sanzioni alle aziende</a>, quindi se invii quel link
+						all'azienda che ti chiede il documento forse ci penseranno due volte.<br>
+						E certamente, a livello personale non ha senso inviare una copia o foto del tuo documento a un'altra persona. Sospetta se qualcuno ti chiede un documento per una compravendita!<br>
+					</p>
+					<p data-i18n="faq.a2.part2">
+						Se sei sicuro di dover inviare il documento, quello che devi fare è seguire le <a href="https://www.commissariatodips.it/notizie/articolo/attenzione-ai-furti-di-identita/index.html" target="_blank">
+							direttive della Polizia
+						</a>, in modo che quella copia sia in bianco e nero, nasconda i dati che non sono necessari per identificarti e venga sovrascritto un testo per rendere l'uso unico.<br>
+						Questo è esattamente quello che fa questa pagina in modo automatizzato.
+					</p>
+					<p data-i18n="faq.a2.part3">
+						Se sei esperto di informatica, puoi eseguire gli stessi passaggi che vengono fatti in questa pagina.<br>
+						Se invece non usi abitualmente programmi di editing grafico, questa pagina ti facilita queste operazioni.<br>
+						Anche se sei una delle persone per cui questo sembra banale, pensa ai tuoi familiari, amici, ...<br>
+						Ti sembra più semplice spiegare loro come fare queste operazioni da soli, o inviare loro un link o uno zip in modo che possano farlo automaticamente?.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q3">Posso fidarmi che non farai nulla con il mio documento?</summary>
+				<div class="respuesta" data-i18n="faq.a3">
+					<p>La pagina non memorizza alcun dato, non vengono usati cookie, non viene usato alcun servizio di terze parti e il tuo documento viene elaborato solo sul tuo cellulare/computer.</p>
+					<p>
+						Il codice sorgente puoi vederlo premendo F12, non è criptato né minimizzato in alcun modo. Inoltre <a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">è disponibile su GitHub</a>,
+						puoi scaricare <a href="https://github.com/AlfonsoML/proteccionDNI/archive/refs/heads/main.zip" target="_blank">tutto il codice completo</a>.<br>
+						Se vuoi avere la massima sicurezza, salva la pagina sul tuo computer/cellulare e così saprai che il codice non verrà mai modificato.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q4">Sono al sicuro dopo aver protetto così il documento?</summary>
+				<div class="respuesta" data-i18n="faq.a4">
+					<p>
+						No, nonostante si nascondano i dati più privati, devi sempre stare attento quando dai il tuo documento a qualsiasi azienda o persona.
+						<a href="https://www.agid.gov.it/it/sicurezza/cert-pa" target="_blank">Puoi leggere qui le raccomandazioni dell'AgID</a><br>
+						È come dire "Ho chiuso a chiave la porta uscendo di casa", questo è meglio che lasciare la porta spalancata, ma un ladro può usare un grimaldello, ecc...
+						chiudendo a chiave eviti i problemi più basilari ma non è una sicurezza completa.
+					</p>
+				</div>
+			</details>
+			<details id="OcultarNumeroSoporte">
+				<summary data-i18n="faq.q5">Devo usare "Nascondi Data di Nascita, Validità e N° Supporto"?</summary>
+				<div class="respuesta" data-i18n="faq.a5">
+					<p>
+						Questi dati potrebbero essere richiesti per fare il "check-in" in alloggi e verificare che il documento sia in corso di validità.
+						In alcuni casi il dato del N° Supporto può essere utile per verificare che non sia un documento falsificato, e per questo potrebbe essere necessario lasciarlo visibile.
+					</p>
+				</div>
+			</details>
+			<details id="OcultarParcialmente">
+				<summary data-i18n="faq.q6">A cosa serve "Nascondi parzialmente il numero documento"?</summary>
+				<div class="respuesta" data-i18n="faq.a6">
+					<p>
+						Probabilmente non avrai bisogno di attivare questa opzione. Nel numero del documento vengono nascoste le prime 3 e le ultime 2 cifre secondo le normative sulla privacy.<br>
+						Questa funzione può essere utile in casi specifici dove non è necessario mostrare il numero completo del documento.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q7">Mi chiedono una copia senza filigrana</summary>
+				<div class="respuesta" data-i18n="faq.a7">
+					<p>
+						In quel caso basta lasciare in bianco il testo e quello che si farà è convertire in bianco e nero, nascondere le parti private ma non verrà sovrascritto
+						nessun testo.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q8">Posso provare senza usare il mio documento?</summary>
+				<div class="respuesta">
+					<p data-i18n="faq.a8">
+						Nella <a href="../test.html">pagina di test</a> trovi le immagini di esempio dei vari formati di documento. Clicca su una qualsiasi di esse e si avvierà il processo.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q9">Posso linkare questa pagina?</summary>
+				<div class="respuesta" data-i18n="faq.a9">
+					<p>
+						Sì, nel caso in cui tu abbia bisogno di chiedere ai tuoi utenti di inviarti una copia del documento (assicurati prima che sia davvero
+						necessaria), puoi linkare questa pagina in modo che ti inviino una copia già protetta e non ti arrivino dati privati.
+					</p>
+					<p>
+						Inoltre, in quel caso puoi linkare la pagina con un parametro che compili già il destinatario della copia. Sono accettati i seguenti parametri secondo la lingua: <code>para</code>, <code>for</code>, <code>pour</code>, <code>per</code>, <code>für</code> (o <code>fur</code>).<br>
+						Esempio: "https://password.es/id/it/?per=Hotel%20California".<br>
+						Naturalmente l'utente potrà sempre modificare quel testo, semplicemente può facilitare un po' il processo.
+					</p>
+				</div>
+			</details>
+			<details>
+				<summary data-i18n="faq.q10">È gratis?</summary>
+				<div class="respuesta" data-i18n="faq.a10">
+					<p>
+						Sì, usare la pagina non ha alcun costo.
+					</p>
+				</div>
+			</details>
+			<details id="IA_o_no_IA">
+				<summary data-i18n="faq.q11">Uso già un altro sistema che genera una filigrana che non può essere rimossa con l'<abbr title="Intelligenza Artificiale">IA</abbr></summary>
+				<div class="respuesta">
+					<p data-i18n="faq.a11.part1">
+						Purtroppo, questo non sta proteggendo realmente il tuo documento, anzi potrebbe essere che ora i tuoi dati siano meno sicuri di prima poiché il
+						<a href="https://it.wikipedia.org/wiki/Teatro_della_sicurezza" target="_blank">teatro della sicurezza</a> ti fa pensare che quel sistema stia proteggendo
+						i tuoi dati quando non è così.
+					</p>
+					<p data-i18n="faq.a11.part2">
+						La realtà è che un criminale non ha bisogno di rimuovere la filigrana.<br />
+						Se tu gli consegni una copia in cui sono visibili tutti i tuoi dati,
+						quella persona aprirà un programma come Photoshop con un modello pulito di documento, scriverà sopra tutti i tuoi dati di numero documento, nome, cognome,
+						data di rilascio, scadenza, ecc., potrebbe voler mettere la propria foto e sarà molto grato che tu gli mostri esattamente com'è la tua firma
+						per poterla replicare senza problemi quando vorrà firmare qualcosa.
+					</p>
+					<p data-i18n="faq.a11.part3">
+						Pertanto, segui quello che dice la polizia e nascondi i dati del tuo documento prima di condividerlo. E assicurati sempre che sia realmente
+						necessario inviare il documento e che l'azienda/persona a cui lo invii sia chi dice di essere.
+					</p>
+				</div>
+			</details>
+			<details id="Contacto">
+				<summary data-i18n="faq.q12">Ho un problema/idea, come posso contattarvi?</summary>
+				<div class="respuesta" data-i18n="faq.a12">
+					<p>
+						Puoi creare un "issue" sul <a href="https://github.com/AlfonsoML/proteccionDNI/issues" target="_blank">GitHub del progetto</a>, oppure puoi <a rel="me" href="https://mastodon.social/@alfonsoml" target="_blank">farlo su Mastodon</a>.
+					</p>
+				</div>
+			</details>
+		</aside>
+	</main>
+
+	<footer>
+		<span data-i18n="footer.privacy">Questa pagina non raccoglie alcun dato. Non vengono inviati dati da nessuna parte. Non vengono usati cookie né servizi di terze parti.</span>
+		<div class="footer-links">
+			<a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank"><span data-i18n="footer.original">Progetto originale</span>: AlfonsoML</a>
+			<span class="footer-separator">|</span>
+			<span><span data-i18n="footer.improvements">Miglioramenti di</span> <a href="https://carrero.es" target="_blank">David Carrero</a></span>
+			<span class="footer-separator">|</span>
+			<a href="https://github.com/dcarrero/proteccionDNI" target="_blank" data-i18n="footer.github">Questo sito su GitHub</a>
+		</div>
+	</footer>
+
+	<!-- Scripts: i18n e theme devono essere caricati prima -->
+	<script type="text/javascript" src="../i18n.js"></script>
+	<script type="text/javascript" src="../theme.js"></script>
+	<script type="text/javascript" src="../formatos.js"></script>
+	<script type="text/javascript" src="../codigo.js"></script>
+</body>
+</html>
