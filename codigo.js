@@ -264,68 +264,24 @@ activarClickConTeclado(Resetear, () => {
 //////////////////////////////////////
 
 /**
- * Detecta el idioma actual basándose en la URL (no localStorage)
- */
-function detectarIdiomaDeURL() {
-	const pathname = window.location.pathname;
-	const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
-	for (const lang of idiomasConCarpeta) {
-		if (pathname.includes(`/${lang}/`)) {
-			return lang;
-		}
-	}
-	return 'es'; // Raíz = español
-}
-
-/**
- * Configura el selector de idioma con redirección a carpetas
+ * Configura el selector de idioma (cambio dinámico sin redirección)
  */
 function configurarSelectorIdioma() {
 	const selector = document.getElementById('LanguageSelect');
-	if (!selector) return;
+	if (!selector || typeof i18n === 'undefined') return;
 
-	// Detectar idioma actual por URL (no localStorage)
-	const idiomaActualURL = detectarIdiomaDeURL();
-	selector.value = idiomaActualURL;
+	// Establecer el valor actual
+	selector.value = i18n.getLanguage();
 
-	// Escuchar cambios - redirigir a la carpeta del idioma
+	// Escuchar cambios
 	selector.addEventListener('change', (e) => {
-		const nuevoIdioma = e.target.value;
-
-		// Si es el mismo idioma que la URL actual, no hacer nada
-		if (nuevoIdioma === idiomaActualURL) return;
-
-		// Obtener la ruta actual
-		let pathname = window.location.pathname;
-		const params = window.location.search;
-		const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
-
-		// Quitar carpeta de idioma actual de la ruta si existe
-		for (const lang of idiomasConCarpeta) {
-			const patron = new RegExp(`/${lang}(/|$)`);
-			if (patron.test(pathname)) {
-				pathname = pathname.replace(`/${lang}`, '');
-				break;
-			}
+		i18n.setLanguage(e.target.value);
+		// Actualizar selector de formatos con nombres traducidos
+		if (typeof actualizarSelectorFormatos === 'function') {
+			actualizarSelectorFormatos();
 		}
-
-		// Asegurar que termina en /
-		if (!pathname.endsWith('/')) {
-			pathname += '/';
-		}
-
-		// Construir nueva URL según el idioma destino
-		let nuevaUrl;
-		if (nuevoIdioma === 'es') {
-			// Español va a la ruta base (sin carpeta de idioma)
-			nuevaUrl = window.location.origin + pathname + params;
-		} else {
-			// Otros idiomas van a su carpeta
-			nuevaUrl = window.location.origin + pathname + nuevoIdioma + '/' + params;
-		}
-
-		// Redirigir
-		window.location.href = nuevaUrl;
+		// Actualizar watermark por defecto
+		AsignarWatermarkPorDefecto(Watermark);
 	});
 }
 

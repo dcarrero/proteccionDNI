@@ -1034,22 +1034,13 @@ const i18n = (function() {
 	 * Detecta el idioma preferido del usuario
 	 */
 	function detectLanguage() {
-		// 1. Primero detectar por la URL (carpeta del idioma)
-		const path = window.location.pathname;
-		const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
-		for (const lang of idiomasConCarpeta) {
-			if (path.includes(`/${lang}/`)) {
-				return lang;
-			}
-		}
-
-		// 2. Si estamos en la raíz, buscar en localStorage
+		// 1. Buscar en localStorage (preferencia guardada)
 		const stored = localStorage.getItem(STORAGE_KEY);
 		if (stored && translations[stored]) {
 			return stored;
 		}
 
-		// 3. Buscar en el navegador
+		// 2. Buscar en el navegador
 		const browserLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 		for (const lang of browserLangs) {
 			const code = lang.split('-')[0].toLowerCase();
@@ -1058,7 +1049,7 @@ const i18n = (function() {
 			}
 		}
 
-		// 4. Por defecto español (raíz)
+		// 3. Por defecto español
 		return DEFAULT_LANG;
 	}
 
