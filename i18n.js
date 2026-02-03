@@ -1099,6 +1099,9 @@ const i18n = (function() {
 			const key = el.getAttribute('data-i18n');
 			const translation = t(key);
 
+			// No sobrescribir si la traducción es la clave (error de traducción)
+			if (translation === key) return;
+
 			// Si contiene HTML, usar innerHTML, si no textContent
 			if (translation.includes('<')) {
 				el.innerHTML = translation;
