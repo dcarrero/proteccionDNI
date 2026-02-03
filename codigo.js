@@ -264,7 +264,7 @@ activarClickConTeclado(Resetear, () => {
 //////////////////////////////////////
 
 /**
- * Configura el selector de idioma
+ * Configura el selector de idioma con redirección a carpetas
  */
 function configurarSelectorIdioma() {
 	const selector = document.getElementById('LanguageSelect');
@@ -273,15 +273,46 @@ function configurarSelectorIdioma() {
 	// Establecer el valor actual
 	selector.value = i18n.getLanguage();
 
-	// Escuchar cambios
+	// Escuchar cambios - redirigir a la carpeta del idioma
 	selector.addEventListener('change', (e) => {
-		i18n.setLanguage(e.target.value);
-		// Actualizar selector de formatos
-		if (typeof actualizarSelectorFormatos === 'function') {
-			actualizarSelectorFormatos();
+		const nuevoIdioma = e.target.value;
+		const idiomaActual = i18n.getLanguage();
+
+		// Si es el mismo idioma, no hacer nada
+		if (nuevoIdioma === idiomaActual) return;
+
+		// Guardar en localStorage para que se aplique al cargar
+		localStorage.setItem('protegemidni-lang', nuevoIdioma);
+
+		// Construir la nueva URL
+		const baseUrl = window.location.origin + window.location.pathname;
+		const params = window.location.search; // Mantener parámetros como ?para=Hotel
+
+		// Detectar la ruta base (sin el idioma actual)
+		let rutaBase = baseUrl;
+		const idiomasConCarpeta = ['en', 'ca', 'gl', 'eu', 'fr', 'it', 'pt', 'de'];
+
+		// Quitar carpeta de idioma actual si existe
+		for (const lang of idiomasConCarpeta) {
+			const patron = new RegExp(`/${lang}/?$`);
+			if (patron.test(rutaBase)) {
+				rutaBase = rutaBase.replace(patron, '/');
+				break;
+			}
 		}
-		// Actualizar watermark si no ha sido modificado manualmente
-		AsignarWatermarkPorDefecto(Watermark);
+
+		// Construir nueva URL según el idioma destino
+		let nuevaUrl;
+		if (nuevoIdioma === 'es') {
+			// Español va a la raíz
+			nuevaUrl = rutaBase + params;
+		} else {
+			// Otros idiomas van a su carpeta
+			nuevaUrl = rutaBase + nuevoIdioma + '/' + params;
+		}
+
+		// Redirigir
+		window.location.href = nuevaUrl;
 	});
 }
 
