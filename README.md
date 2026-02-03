@@ -52,7 +52,7 @@ Web application to protect ID documents before sharing. Hides private data and a
 ## Créditos / Credits
 
 - **Proyecto original / Original project**: [AlfonsoML/proteccionDNI](https://github.com/AlfonsoML/proteccionDNI)
-- **Mejoras y extensiones / Improvements and extensions**: [David Carrero Fernandez-Baillo](https://carrero.es) - [GitHub](https://github.com/dcarrero/proteccionDNI)
+- **Mejoras y extensiones / Improvements and extensions**: [David Carrero](https://carrero.es) - [GitHub](https://github.com/dcarrero/proteccionDNI)
   - Sistema multiidioma (9 idiomas)
   - Toggle de tema claro/oscuro
   - Soporte para documentos internacionales
