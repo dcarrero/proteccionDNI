@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../estilos.css">
 	<link href="../favicon.ico" rel="icon">
-	<meta name="keywords" content="NAN, segurtasuna, NAN partekatu, NAN babesa, ID protection, passport">
-	<meta name="description" content="Babestu zure NAN partekatu aurretik. Ezkutatu datu pribatuak, gehitu ur-marka pertsonalizatua. Doako tresna, %100 offline, daturik bidali gabe.">
+	<meta name="keywords" content="NAN, segurtasuna, NAN partekatu, NAN babesa, nortasun agiria, pribatutasuna">
+	<meta name="description" content="Babestu zure NAN partekatu aurretik. Ezkutatu datu pribatuak, gehitu ur-marka pertsonalizatua. Doako tresna, %100 offline.">
 	<meta name="robots" content="index, follow">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://password.es/id/eu/">
 	<meta property="og:title" content="NAN Babesa - Babestu zure nortasun agiria">
-	<meta property="og:description" content="Babestu zure NAN partekatu aurretik. Ezkutatu datu pribatuak, gehitu ur-marka pertsonalizatua. Doako tresna, %100 offline.">
+	<meta property="og:description" content="Babestu zure NAN partekatu aurretik. Ezkutatu datu pribatuak, gehitu ur-marka pertsonalizatua.">
 	<meta property="og:site_name" content="NAN Babesa">
 	<meta property="og:image" content="https://password.es/id/ejemplos/ejemplo-protegido.webp">
 	<meta property="og:image:width" content="1000">
@@ -33,17 +33,13 @@
 	<link rel="alternate" hreflang="pt" href="https://password.es/id/pt/" />
 	<link rel="alternate" hreflang="de" href="https://password.es/id/de/" />
 	<link rel="alternate" hreflang="x-default" href="https://password.es/id/" />
-
 	<link rel="manifest" href="../manifest.webmanifest">
-	<!-- Si se usa el fichero en local, hay que quitar esta linea, esto debería ser un HTTP Header pero GitHub pages no lo soportan https://github.com/orgs/community/discussions/54257 -->
 	<meta id="MetaCSP" http-equiv="Content-Security-Policy" content="script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self'; img-src 'self' blob: data:; media-src 'none'; font-src 'self'; connect-src data:; frame-src 'none'; object-src 'none'; form-action 'none'; " />
 	<meta http-equiv="X-Content-Type-Options" content="nosniff" />
 </head>
 <body>
-	<!-- Goiko kontrol-barra -->
 	<div class="top-controls">
 		<h1 class="site-title">NAN Babesa</h1>
-		<!-- Hizkuntza hautatzailea -->
 		<select id="LanguageSelect" aria-label="Hizkuntza hautatu">
 			<option value="es">Español</option>
 			<option value="ca">Català</option>
@@ -55,143 +51,98 @@
 			<option value="pt">Português</option>
 			<option value="de">Deutsch</option>
 		</select>
-
-		<!-- Gai aldatzailea -->
-		<button type="button" id="ThemeToggle" class="control-btn theme-auto" data-i18n-title="theme.auto" title="Gai automatikoa">
-			<!-- Auto ikonoa (eguzkia+ilargia) -->
-			<svg class="icon-auto" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8V4z"/>
-			</svg>
-			<!-- Eguzki ikonoa (gai argia) -->
-			<svg class="icon-light" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 7a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-7v2m0 16v2M4 12H2m4.22-5.78L4.81 4.81m12.97 0-1.41 1.41M20 12h2m-4.22 5.78 1.41 1.41M6.22 17.78 4.81 19.19"/>
-			</svg>
-			<!-- Ilargi ikonoa (gai iluna) -->
-			<svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7 7 7 0 0 0 7 7 7 7 0 0 0 4.87-1.97A9 9 0 0 1 10.03 7.13 7 7 0 0 0 12 5z"/>
-			</svg>
+		<button type="button" id="ThemeToggle" class="control-btn theme-auto" title="Gai automatikoa">
+			<svg class="icon-auto" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8V4z"/></svg>
+			<svg class="icon-light" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-7v2m0 16v2M4 12H2m4.22-5.78L4.81 4.81m12.97 0-1.41 1.41M20 12h2m-4.22 5.78 1.41 1.41M6.22 17.78 4.81 19.19"/></svg>
+			<svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7 7 7 0 0 0 7 7 7 7 0 0 0 4.87-1.97A9 9 0 0 1 10.03 7.13 7 7 0 0 0 12 5z"/></svg>
 		</button>
 	</div>
 
 	<main>
 		<section id="introduccion" class="informacion">
-			<p data-i18n="intro.p1">
-				Orri honek zure <a href="#porque" class="AbrirInfo">NANeko datu pribatuak</a> erraz ezkutatzeko aukera ematen dizu.
-				Batzuetan NANaren kopia bat eskatu diezazukete, baina ez da gomendagarria argazkia bere horretan bidaltzea, esku txarretan erortzean arazo larriak sor ditzakeelako.
-			</p>
-			<p data-i18n="intro.p2">Hemen beharrezkoak ez diren datuak blokeatu eta testu bat gainidatzi dezakezu beste helburu batzuetarako erabili ez dezaten, horrela partekatzen duzun irudia bakarra izango da berrerabili ez dezaten.</p>
+			<p>Orri honek zure <a href="#porque" class="AbrirInfo">NANeko datu pribatuak</a> erraz ezkutatzeko aukera ematen dizu. Batzuetan NANaren kopia bat eskatu diezazukete, baina ez da gomendagarria argazkia bere horretan bidaltzea, esku txarretan erortzean arazo larriak sor ditzakeelako.</p>
+			<p>Hemen beharrezkoak ez diren datuak blokeatu eta testu bat gainidatzi dezakezu beste helburu batzuetarako erabili ez dezaten, horrela partekatzen duzun irudia bakarra izango da berrerabili ez dezaten.</p>
 			<p>
-				<span data-i18n="intro.p3">Hasteko, sakatu argazkia aukeratzeko botoia eta jarraitu hurrengo urratsak.</span><br>
-				<span data-i18n="intro.p3.offline">Prozesu hau guztia zure nabigatzailean bakarrik egiten da, ez da daturik inora bidaltzen.</span>
+				<span>Hasteko, sakatu argazkia aukeratzeko botoia eta jarraitu hurrengo urratsak.</span><br>
+				<span>Prozesu hau guztia zure nabigatzailean bakarrik egiten da, ez da daturik inora bidaltzen.</span>
 			</p>
 		</section>
 		<noscript>
-			<p data-i18n="noscript">
-				Orri honek Javascript aktibatzea behar du exekutatzeko. Prozesu guztia zure nabigatzailean egiten da eta ezinbestekoa da javascript erabiltzea.
-			</p>
-			<style type="text/css">
-				noscript p {
-					margin: 2em;
-					font-weight: bold;
-					text-align: center;
-				}
-
-				#pasos {
-					display: none;
-				}
-			</style>
+			<p>Orri honek Javascript aktibatzea behar du exekutatzeko. Prozesu guztia zure nabigatzailean egiten da eta ezinbestekoa da javascript erabiltzea.</p>
+			<style type="text/css">noscript p{margin:2em;font-weight:bold;text-align:center;}#pasos{display:none;}</style>
 		</noscript>
 		<section id="pasos">
-			<a id="cerrar" data-i18n-title="nav.close" title="Itxi aurrerapena"><svg viewBox="0 0 12 12" role="presentation"><path d="M1,1 l 10,10 M1,11 l 10,-10" /></svg></a>
+			<a id="cerrar" title="Itxi aurrerapena"><svg viewBox="0 0 12 12" role="presentation"><path d="M1,1 l 10,10 M1,11 l 10,-10" /></svg></a>
 			<div class="wizard-container">
 				<div class="wizard-progress">
-					<div class="step in-progress" id="step1">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.photo">Argazkia</span>
-					</div>
-					<div class="step" id="step2">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.type">Mota</span>
-					</div>
-					<div class="step" id="step3">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.position">Kokapena</span>
-					</div>
-					<div class="step" id="step4">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.text">Testua</span>
-					</div>
-					<div class="step" id="step5">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.save">Gorde</span>
-					</div>
+					<div class="step in-progress" id="step1"><div class="node"></div><span class="step-name">Argazkia</span></div>
+					<div class="step" id="step2"><div class="node"></div><span class="step-name">Mota</span></div>
+					<div class="step" id="step3"><div class="node"></div><span class="step-name">Kokapena</span></div>
+					<div class="step" id="step4"><div class="node"></div><span class="step-name">Testua</span></div>
+					<div class="step" id="step5"><div class="node"></div><span class="step-name">Gorde</span></div>
 				</div>
 				<div class="wizard-percentage">
-					<div class="percentage-bar">
-						<div class="percentage-fill" id="wizardProgress"></div>
-					</div>
+					<div class="percentage-bar"><div class="percentage-fill" id="wizardProgress"></div></div>
 					<span class="percentage-text" id="wizardPercentage">0%</span>
 				</div>
 			</div>
 
 			<details id="paso1" name="paso" open>
-				<summary data-i18n="step1.title">Argazkia</summary>
+				<summary>Argazkia</summary>
 				<div>
-					<p class="centrado"><button class="btn BotonPrincipal" type="button" id="ElegirFoto"><span data-i18n="step1.button">Aukeratu argazkia</span></button></p>
-					<div id="DivFichero"><input type="file" id="SelectorFichero" accept="image/*" title="Argazki hautatzailea (ez ikusgai)" tabindex="-1" aria-hidden="true"></div>
+					<p class="centrado"><button class="btn BotonPrincipal" type="button" id="ElegirFoto"><span>Aukeratu argazkia</span></button></p>
+					<div id="DivFichero"><input type="file" id="SelectorFichero" accept="image/*" title="Argazki hautatzailea" tabindex="-1" aria-hidden="true"></div>
 				</div>
 			</details>
 			<details id="paso2" name="paso">
-				<summary data-i18n="step2.title">Argazki mota</summary>
+				<summary>Argazki mota</summary>
 				<div>
-					<p data-i18n="step2.description">
-						Aukeratu NANaren aurreko edo atzeko argazkia erabiltzen ari zaren; jarraian NANaren tamaina eta kokapena doitu ditzakezu.
-					</p>
-					<div><label for="Formato" data-i18n="step2.format.label">Argazki mota</label> <select id="Formato"></select></div>
-					<div id="DivValidez" class="CampoCheckbox Oculto"><label for="Validez" data-i18n="step2.validity.label">Ezkutatu Jaiotze Data, Baliozkotasuna eta Euskarri Zk.</label> <span><input type="checkbox" id="Validez"> <a href="#OcultarNumeroSoporte" id="AyudaOcultarNumeroSoporte" class="AbrirInfo" data-i18n="step2.validity.help">zer da hau?</a></span></div>
-					<div id="DivMascaraDni" class="CampoCheckbox Oculto"><label for="EnmascararDni" data-i18n="step2.mask.label">Ezkutatu NAN partzialki</label> <span><input type="checkbox" id="EnmascararDni"> <a href="#OcultarParcialmente" id="AyudaOcultarParcialmente" class="AbrirInfo" data-i18n="step2.mask.help">zer da hau?</a></span></div>
+					<p>Aukeratu NANaren aurreko edo atzeko argazkia erabiltzen ari zaren; jarraian NANaren tamaina eta kokapena doitu ditzakezu.</p>
+					<div><label for="Formato">Argazki mota</label> <select id="Formato"></select></div>
+					<div id="DivValidez" class="CampoCheckbox Oculto"><label for="Validez">Ezkutatu Jaiotze Data, Baliozkotasuna eta Euskarri Zk.</label> <span><input type="checkbox" id="Validez"> <a href="#OcultarNumeroSoporte" class="AbrirInfo">zer da hau?</a></span></div>
+					<div id="DivMascaraDni" class="CampoCheckbox Oculto"><label for="EnmascararDni">Ezkutatu NAN partzialki</label> <span><input type="checkbox" id="EnmascararDni"> <a href="#OcultarParcialmente" class="AbrirInfo">zer da hau?</a></span></div>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="1"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Aurrekoa</span></span></button>
-						<button class="btn adelante" type="button" data-siguiente="3"><span><span data-i18n="nav.next">Hurrengoa</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="1"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Aurrekoa</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="3"><span><span>Hurrengoa</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso3" name="paso">
-				<summary data-i18n="step3.title">Kokapena</summary>
+				<summary>Kokapena</summary>
 				<div>
-					<p data-i18n="step3.description">Doitu orientazioa eta kokapena NAN ondo ikusteko.</p>
+					<p>Doitu orientazioa eta kokapena NAN ondo ikusteko.</p>
 					<div id="ControlesDesplazamiento">
-						<div class="ContenedorControl"><label for="Zoom" data-i18n="step3.zoom">Hurbiltzea</label> <input type="range" min="0.8" max="2" id="Zoom" value="1" step="any"></div>
-						<div class="ContenedorControl"><label for="Rotacion" data-i18n="step3.rotate">Biratu</label> <input type="range" min="-10" max="10" id="Rotacion" value="0" step="any"></div>
-						<div class="ContenedorControl"><label for="Horizontal" data-i18n="step3.horizontal">Desp. Horizontala</label> <input type="range" min="-200" max="200" id="Horizontal" value="0"></div>
-						<div class="ContenedorControl"><label for="Vertical" data-i18n="step3.vertical">Desp. Bertikala</label> <input type="range" min="-200" max="200" id="Vertical" value="0"></div>
+						<div class="ContenedorControl"><label for="Zoom">Hurbiltzea</label> <input type="range" min="0.8" max="2" id="Zoom" value="1" step="any"></div>
+						<div class="ContenedorControl"><label for="Rotacion">Biratu</label> <input type="range" min="-10" max="10" id="Rotacion" value="0" step="any"></div>
+						<div class="ContenedorControl"><label for="Horizontal">Desp. Horizontala</label> <input type="range" min="-200" max="200" id="Horizontal" value="0"></div>
+						<div class="ContenedorControl"><label for="Vertical">Desp. Bertikala</label> <input type="range" min="-200" max="200" id="Vertical" value="0"></div>
 					</div>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="2"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Aurrekoa</span></span></button>
-						<button class="btn adelante BotonPrincipal" type="button" data-siguiente="4"><span><span data-i18n="nav.next">Hurrengoa</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="2"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Aurrekoa</span></span></button>
+						<button class="btn adelante BotonPrincipal" type="button" data-siguiente="4"><span><span>Hurrengoa</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso4" name="paso">
-				<summary data-i18n="step4.title">Testua</summary>
+				<summary>Testua</summary>
 				<div>
-					<p data-i18n="step4.description">Idatzi testu bat irudiaren gainean gehitzeko.</p>
-					<div class="ContenedorControl"><label for="Destinatario" data-i18n="step4.recipient.label">Hartzailea:</label> <input type="text" id="Destinatario" data-i18n-placeholder="step4.recipient.placeholder" placeholder="Adib.: Hotel California, X Bankua..."></div>
-					<div class="ContenedorControl"><label for="Watermark" data-i18n="step4.watermark.label">Testu osoa:</label> <input type="text" id="Watermark" data-i18n-placeholder="step4.watermark.default" value="Kopia ...-rako"></div>
-					<p class="texto-ayuda" data-i18n="step4.help">Hartzailea automatikoki gehitzen da testuan. Testu osoa zuzenean editatu dezakezu.</p>
+					<p>Idatzi testu bat irudiaren gainean gehitzeko.</p>
+					<div class="ContenedorControl"><label for="Destinatario">Hartzailea:</label> <input type="text" id="Destinatario" placeholder="Adib.: Hotel California, X Bankua..."></div>
+					<div class="ContenedorControl"><label for="Watermark">Testu osoa:</label> <input type="text" id="Watermark" value="Kopia ...-rako"></div>
+					<p class="texto-ayuda">Hartzailea automatikoki gehitzen da testuan. Testu osoa zuzenean editatu dezakezu.</p>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="3"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Aurrekoa</span></span></button>
-						<button class="btn adelante" type="button" data-siguiente="5"><span><span data-i18n="nav.next">Hurrengoa</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="3"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Aurrekoa</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="5"><span><span>Hurrengoa</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso5" name="paso">
-				<summary data-i18n="step5.title">Gorde</summary>
+				<summary>Gorde</summary>
 				<div>
-					<p data-i18n="step5.description">Aukeratu orain irudia gorde edo zuzenean aplikazio batekin partekatu nahi duzun (zure nabigatzaileak onartzen badu).</p>
+					<p>Aukeratu orain irudia gorde edo zuzenean aplikazio batekin partekatu nahi duzun (zure nabigatzaileak onartzen badu).</p>
 					<p class="centrado">
-						<button class="btn BotonPrincipal" type="button" id="Guardar"><span><span data-i18n="step5.save">Gorde</span><svg viewBox="0 0 24 24" role="presentation"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" /></svg></span></button>
-						<button class="btn BotonPrincipal" type="button" id="Compartir"><span><span data-i18n="step5.share">Partekatu</span><svg viewBox="0 0 24 24" role="presentation"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 00-3 3 3 3 0 003 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0018 16.08z" /></svg></span></button>
+						<button class="btn BotonPrincipal" type="button" id="Guardar"><span><span>Gorde</span><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></span></button>
+						<button class="btn BotonPrincipal" type="button" id="Compartir"><span><span>Partekatu</span><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 00-3 3 3 3 0 003 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0018 16.08z"/></svg></span></button>
 					</p>
 					<a id="grabar"></a>
 				</div>
@@ -200,23 +151,23 @@
 				<canvas id="canvas" width="1000" height="625"></canvas>
 				<div id="ControlesPosicion" class="ControlesSuperpuestos">
 					<div class="BloqueBotones">
-						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateLeft" title="Biratu ezkerrera" data-giro="-90"><svg viewBox="0 0 24 24"><path d="M13 4.07V1L8.45 5.55 13 10V6.09a6 6 0 0 1 0 11.82v2.02a7.99 7.99 0 0 0 0-15.86M7.1 18.32a7.92 7.92 0 0 0 3.9 1.61V17.9a5.91 5.91 0 0 1-2.46-1.03L7.1 18.32M6.09 13H4.07a7.9 7.9 0 0 0 1.62 3.89l1.41-1.42A6 6 0 0 1 6.09 13m1.02-4.47L5.7 7.11A7.92 7.92 0 0 0 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47Z" /></svg></button>
-						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateRight" title="Biratu eskuinera" data-giro="90"><svg viewBox="0 0 24 24"><path d="m16.89 15.5 1.42 1.39A7.9 7.9 0 0 0 19.93 13h-2.02a6.08 6.08 0 0 1-1.02 2.5M13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03m6.93-6.9a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47m-2.36-5.45L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45Z" /></svg></button>
+						<button type="button" class="IconoAccion girar" title="Biratu ezkerrera" data-giro="-90"><svg viewBox="0 0 24 24"><path d="M13 4.07V1L8.45 5.55 13 10V6.09a6 6 0 0 1 0 11.82v2.02a7.99 7.99 0 0 0 0-15.86M7.1 18.32a7.92 7.92 0 0 0 3.9 1.61V17.9a5.91 5.91 0 0 1-2.46-1.03L7.1 18.32M6.09 13H4.07a7.9 7.9 0 0 0 1.62 3.89l1.41-1.42A6 6 0 0 1 6.09 13m1.02-4.47L5.7 7.11A7.92 7.92 0 0 0 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47Z"/></svg></button>
+						<button type="button" class="IconoAccion girar" title="Biratu eskuinera" data-giro="90"><svg viewBox="0 0 24 24"><path d="m16.89 15.5 1.42 1.39A7.9 7.9 0 0 0 19.93 13h-2.02a6.08 6.08 0 0 1-1.02 2.5M13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03m6.93-6.9a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47m-2.36-5.45L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45Z"/></svg></button>
 					</div>
-					<button type="button" id="Resetear" class="IconoAccion" data-i18n-title="controls.reset" title="Desegin tamaina eta kokapen aldaketak"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" /></svg></button>
+					<button type="button" id="Resetear" class="IconoAccion" title="Desegin tamaina eta kokapen aldaketak"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></button>
 				</div>
 				<div id="ControlesPantalla" class="ControlesSuperpuestos">
-					<button type="button" id="Expandir" class="IconoAccion" data-i18n-title="controls.expand" title="Zabaldu pantaila osora"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5V5m9 0h5v5h-2V7h-3V5m3 9h2v5h-5v-2h3v-3m-7 3v2H5v-5h2v3h3Z" /></svg></button>
-					<button type="button" id="Colapsar" class="IconoAccion" data-i18n-title="controls.collapse" title="Itzuli bista normalera"><svg viewBox="0 0 24 24"><path d="M14 14h5v2h-3v3h-2v-5m-9 0h5v5H8v-3H5v-2m3-9h2v5H5V8h3V5m11 3v2h-5V5h2v3h3Z" /></svg></button>
+					<button type="button" id="Expandir" class="IconoAccion" title="Zabaldu pantaila osora"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5V5m9 0h5v5h-2V7h-3V5m3 9h2v5h-5v-2h3v-3m-7 3v2H5v-5h2v3h3Z"/></svg></button>
+					<button type="button" id="Colapsar" class="IconoAccion" title="Itzuli bista normalera"><svg viewBox="0 0 24 24"><path d="M14 14h5v2h-3v3h-2v-5m-9 0h5v5H8v-3H5v-2m3-9h2v5H5V8h3V5m11 3v2h-5V5h2v3h3Z"/></svg></button>
 				</div>
 			</div>
 		</section>
 
 		<aside id="FAQ" class="informacion">
-			<h2 data-i18n="faq.title">Galderak eta erantzunak</h2>
+			<h2>Galderak eta erantzunak</h2>
 			<details>
-				<summary data-i18n="faq.q1">Zer egiten du orriak?</summary>
-				<div class="respuesta" data-i18n="faq.a1">
+				<summary>Zer egiten du orriak?</summary>
+				<div class="respuesta">
 					<p>Poliziak zure NAN babesteko gomendatzen dituen urratsak jarraitzea da helburua, guztiak gogoratu eta zein datu diren garrantzitsuak jakin beharrik gabe.</p>
 					<ol>
 						<li>Aukeratu zure NANaren argazki bat. Irudia zuri-beltzera bihurtzen da eta tamaina mugatzen da kalitate altuko kopia bat ez emateko.</li>
@@ -228,154 +179,90 @@
 				</div>
 			</details>
 			<details id="porque">
-				<summary data-i18n="faq.q2">Zergatik erabili?</summary>
+				<summary>Zergatik erabili?</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a2.part1">
-						Zure NAN partekatzeak esku txarretan amaitzearen arriskua du eta <a href="https://maldita.es/malditateexplica/20220619/dni-enviar-foto-suplantacion/" target="_blank">nortasun ordezkapena</a> jasan dezakezu.
-						Oro har, enpresek <b>ez</b> lukete zure NANeko datu gehienetarako sarbiderik izan behar. PDF hau irakur dezakezu
-						<a href="https://www.aepd.es/documento/2023-0048.pdf" target="_blank"><abbr title="Datuak Babesteko Espainiako Agentzia">DBEA</abbr>ren 48/2023 txostena</a>.
-						Dagoeneko <a href="https://www.pymelegal.es/noticias/aepd/la-proteccion-de-datos-y-el-dni" target="_blank">enpresak zigortuta</a> daude, beraz esteka hori NAN eskatzen dizun enpresari bidaltzen badiozu
-						agian birritan pentsatuko du.<br>
-						Eta jakina, norbanako mailan ez du zentzurik beste pertsona bati zure NANaren kopia edo argazkia bidaltzeak. Susmagarria izan norbaitek salerosketaren baterako NAN eskatzen badizu!<br>
-					</p>
-					<p data-i18n="faq.a2.part2">
-						Argi badaukazu NAN bidali behar diezula, egin beharrekoa <a href="https://www.rtve.es/noticias/20240604/pixelar-datos-recomendaciones-expertos-compartir-dni-internet/16132816.shtml" target="_blank">
-							Polizia Nazionalaren jarraibideak
-						</a> jarraitzea da, kopia hori zuri-beltzean egon dadin, beharrezkoak ez diren datuak ezkutatu eta testu bat gainidatzi dadin erabilera bakarra izan dadin.<br>
-						Horixe da hain zuzen ere orri honek modu automatizatuan egiten duena.
-					</p>
-					<p data-i18n="faq.a2.part3">
-						Informatikan ondo moldatzen bazara, zuk zeuk egin ditzakezu orri honetan egiten diren urrats berdinak.<br>
-						Aitzitik, edizio grafikoko programak erabiltzen ez badituzu, orri honek lan horiek errazten dizkizu.<br>
-						Zuri hau hutsalkeria iruditzen bazaizu ere, pentsatu zure senideetan, lagunengan, ...<br>
-						Errazagoa iruditzen zaizu nola egin operazio hauek beraien kabuz azaltzea, ala esteka edo zip bat bidaltzea modu automatizatuan egin dezaten?.
-					</p>
+					<p>Zure NAN partekatzeak esku txarretan amaitzearen arriskua du eta nortasun ordezkapena jasan dezakezu. Oro har, enpresek <b>ez</b> lukete zure NANeko datu gehienetarako sarbiderik izan behar.</p>
+					<p>Argi badaukazu NAN bidali behar diezula, egin beharrekoa Polizia Nazionalaren jarraibideak jarraitzea da, kopia hori zuri-beltzean egon dadin, beharrezkoak ez diren datuak ezkutatu eta testu bat gainidatzi dadin erabilera bakarra izan dadin. Horixe da hain zuzen ere orri honek modu automatizatuan egiten duena.</p>
+					<p>Zuretzat hau hutsalkeria iruditzen bazaizu ere, pentsatu zure senideetan, lagunengan... Errazagoa iruditzen zaizu nola egin operazio hauek beraien kabuz azaltzea, ala esteka bat bidaltzea modu automatizatuan egin dezaten?</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q3">Fidatu al naiteke nire NANarekin ezer egingo ez duzunaz?</summary>
-				<div class="respuesta" data-i18n="faq.a3">
+				<summary>Fidatu al naiteke nire NANarekin ezer egingo ez duzunaz?</summary>
+				<div class="respuesta">
 					<p>Orriak ez du daturik gordetzen, ez dira cookieak erabiltzen, ez da hirugarrenen zerbitzurik erabiltzen eta zure NAN zure mugikorrean/ordenagailuan bakarrik prozesatzen da.</p>
-					<p>
-						Iturburu kodea F12 sakatuz ikus dezakezu, ez dago inola ere enkriptatuta edo minimizatuta. Gainera <a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">GitHuben dago eskuragarri</a>,
-						<a href="https://github.com/AlfonsoML/proteccionDNI/archive/refs/heads/main.zip" target="_blank">kode osoa</a> deskargatu dezakezu.<br>
-						Segurtasun handiena izan nahi baduzu, gorde orria zure ordenagailuan/mugikorrean eta horrela jakingo duzu kodea ez dela inoiz aldatuko.
-					</p>
+					<p>Iturburu kodea F12 sakatuz ikus dezakezu, ez dago inola ere enkriptatuta edo minimizatuta. Gainera <a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">GitHuben dago eskuragarri</a>. Segurtasun handiena izan nahi baduzu, gorde orria zure ordenagailuan/mugikorrean eta horrela jakingo duzu kodea ez dela inoiz aldatuko.</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q4">Seguru al nago NAN horrela babestu ondoren?</summary>
-				<div class="respuesta" data-i18n="faq.a4">
-					<p>
-						Ez, datu pribatuenak ezkutatu arren, beti kontuz ibili behar duzu zure NAN edozein enpresa edo pertsonari ematerakoan.
-						<a href="https://www.incibe.es/ciudadania/blog/precauciones-tener-en-cuenta-si-vas-enviar-tu-dni-por-internet" target="_blank"><abbr title="Zibersegurtasuneko Institutu Nazionala">INCIBE</abbr>ren gomendioak hemen irakur ditzakezu</a><br>
-						Etxetik irteterakoan atea giltza pasatzea bezala da, hori zabalik uztea baino hobe da, baina lapurrak gako faltsu bat erabil dezake, etab...
-						giltza pasatzean oinarrizko arazoak ekiditen dituzu baina ez da segurtasun osoa.
-					</p>
+				<summary>Seguru al nago NAN horrela babestu ondoren?</summary>
+				<div class="respuesta">
+					<p>Ez, datu pribatuenak ezkutatu arren, beti kontuz ibili behar duzu zure NAN edozein enpresa edo pertsonari ematerakoan. Etxetik irteterakoan atea giltza pasatzea bezala da, hori zabalik uztea baino hobe da, baina lapurrak gako faltsu bat erabil dezake, etab... giltza pasatzean oinarrizko arazoak ekiditen dituzu baina ez da segurtasun osoa.</p>
 				</div>
 			</details>
 			<details id="OcultarNumeroSoporte">
-				<summary data-i18n="faq.q5">"Jaiotze Data, Baliozkotasuna eta Euskarri Zk. ezkutatu" erabili behar al dut?</summary>
-				<div class="respuesta" data-i18n="faq.a5">
-					<p>
-						Datu hauek ostatuetan "check-in" egiteko eskatu diezazkizukete NAN indarrean dagoela egiaztatzeko 933/2021 Errege Dekretuaren arabera.
-						Garai batean <a href="https://papafrikifeed.duckdns.org/@PapaFriki/episodes/ppf-wwwprotegemidnies-con-alfonso-martinez" target="_blank">Papá Frikik</a>
-						esan zidan Euskarri Zk. datua NAN faltsutu bat ez dela egiaztatzeko baliagarria izan daitekeela batzuetan, eta horregatik ikusgai uztea ere beharrezkoa izan daiteke.
-					</p>
+				<summary>"Jaiotze Data, Baliozkotasuna eta Euskarri Zk. ezkutatu" erabili behar al dut?</summary>
+				<div class="respuesta">
+					<p>Datu hauek ostatuetan "check-in" egiteko eskatu diezazkizukete NAN indarrean dagoela egiaztatzeko. Euskarri Zk. datua NAN faltsutu bat ez dela egiaztatzeko baliagarria izan daiteke batzuetan, eta horregatik ikusgai uztea ere beharrezkoa izan daiteke.</p>
 				</div>
 			</details>
 			<details id="OcultarParcialmente">
-				<summary data-i18n="faq.q6">Zertarako balio du "NAN partzialki ezkutatu"?</summary>
-				<div class="respuesta" data-i18n="faq.a6">
-					<p>
-						Ziurrenik ez duzu aukera hau aktibatu beharko. NAN zenbakian lehenengo 3 eta azken 2 zifrak ezkutatzen dira <a href="https://www.aepd.es/sites/default/files/2019-09/orientaciones-da7.pdf" target="_blank">LOPDGDDren zazpigarren xedapen gehigarriaren behin-behineko aplikaziorako orientazioaren</a> arabera.<br>
-						Eskaera eta erabilera kasua <a href="https://github.com/AlfonsoML/proteccionDNI/issues/12" target="_blank">eskaeran</a> irakur dezakezu.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q7">Ur-markarik gabeko kopia bat eskatzen didate</summary>
-				<div class="respuesta" data-i18n="faq.a7">
-					<p>
-						Kasu horretan testua zurian utzi besterik ez duzu egin behar eta egingo dena zuri-beltzera bihurtzea izango da, atal pribatuak ezkutatzea baina ez da
-						testurik gainidatziko.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q8">Probatu al dezaket nire NAN erabili gabe?</summary>
+				<summary>Zertarako balio du "NAN partzialki ezkutatu"?</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a8">
-						<a href="../test.html">Proba orrian</a> NAN formatu desberdinen adibide irudiak dituzu. Egin klik edozeinetan eta prozesua hasiko da.
-					</p>
+					<p>Ziurrenik ez duzu aukera hau aktibatu beharko. NAN zenbakian lehenengo 3 eta azken 2 zifrak ezkutatzen dira datuak babesteko jarraibideen arabera.</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q9">Orri honetara estekatu al dezaket?</summary>
-				<div class="respuesta" data-i18n="faq.a9">
-					<p>
-						Bai, zure erabiltzaileei NANaren kopia bat eskatu behar badiezu (ziurtatu lehenik benetan
-						behar duzula), orri honekin estekatu dezakezu dagoeneko babestutako kopia bat bidal diezazuten eta datu pribatuak jaso ez ditzazun.
-					</p>
-					<p>
-						Gainera, kasu horretan orria parametro batekin estekatu dezakezu kopiaren hartzailea bete diezaien. Parametro hauek onartzen dira hizkuntzaren arabera: <code>para</code>, <code>for</code>, <code>pour</code>, <code>per</code>, <code>für</code> (edo <code>fur</code>).<br>
-						Adibidea: "https://password.es/id/?para=Hotel%20California" edo "https://password.es/id/en/?for=Hotel%20California".<br>
-						Jakina, erabiltzaileak beti aldatu ahal izango du testu hori, prozesua pixka bat erraztu diezaieke besterik ez.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q10">Dohainik al da?</summary>
-				<div class="respuesta" data-i18n="faq.a10">
-					<p>
-						Bai, orria erabiltzeak ez du kostu bakarra ere.
-					</p>
-				</div>
-			</details>
-			<details id="IA_o_no_IA">
-				<summary data-i18n="faq.q11">Dagoeneko <abbr title="Adimen Artifiziala">AA</abbr>rekin ezin den kendu ur-marka sortzen duen beste sistema bat erabiltzen dut</summary>
+				<summary>Ur-markarik gabeko kopia bat eskatzen didate</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a11.part1">
-						Tamalez, horrek ez du benetan zure NAN babesten, izan ere baliteke orain zure datuak lehenago baino gutxiago babestuta egotea
-						<a href="https://eu.wikipedia.org/wiki/Segurtasun_antzerkia" target="_blank">segurtasun antzerkiak</a> pentsarazten dizulako sistema horrek zure
-						datuak babesten dituela hala ez denean.
-					</p>
-					<p data-i18n="faq.a11.part2">
-						Errealitatea da delinkuente batek ez duela ur-marka kendu behar.<br />
-						Datu guztiak ikusgai dauden kopia bat ematen badiozu,
-						pertsona horrek Photoshop bezalako programa bat irekiko du NAN txantiloi garbi batekin, gainean zure datu guztiak idatziko ditu: NAN Zk., izena, abizenak,
-						espedizio data, iraungitze data, etab., agian bere argazkia jarri nahiko du eta gainera oso eskertu emango dizu zure sinadura nolakoa den zehazki erakusteagatik
-						arazorik gabe erreplikatu ahal izateko zerbait sinatu nahi duenean.
-					</p>
-					<p data-i18n="faq.a11.part3">
-						Beraz, egin kasu poliziak esaten duenari eta ezkutatu zure NANeko datuak partekatu aurretik. Eta ziurtatu beti benetan
-						beharrezkoa dela NAN bidaltzea eta jasotzen duen enpresa/pertsona esaten duena dela.
-					</p>
+					<p>Kasu horretan testua zurian utzi besterik ez duzu egin behar eta egingo dena zuri-beltzera bihurtzea izango da, atal pribatuak ezkutatzea baina ez da testurik gainidatziko.</p>
 				</div>
 			</details>
-			<details id="Contacto">
-				<summary data-i18n="faq.q12">Arazo/ideia bat daukat, nola jar naiteke harremanetan?</summary>
-				<div class="respuesta" data-i18n="faq.a12">
-					<p>
-						"Issue" bat sor dezakezu <a href="https://github.com/AlfonsoML/proteccionDNI/issues" target="_blank">proiektuaren GitHuben</a>, edo <a rel="me" href="https://mastodon.social/@alfonsoml" target="_blank">Mastodon bidez egin dezakezu</a>.
-					</p>
+			<details>
+				<summary>Probatu al dezaket nire NAN erabili gabe?</summary>
+				<div class="respuesta">
+					<p><a href="../test.html">Proba orrian</a> NAN formatu desberdinen adibide irudiak dituzu. Egin klik edozeinetan eta prozesua hasiko da.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Orri honetara estekatu al dezaket?</summary>
+				<div class="respuesta">
+					<p>Bai, zure erabiltzaileei NANaren kopia bat eskatu behar badiezu (ziurtatu lehenik benetan behar duzula), orri honekin estekatu dezakezu dagoeneko babestutako kopia bat bidal diezazuten.</p>
+					<p>Gainera, orria parametro batekin estekatu dezakezu kopiaren hartzailea bete diezaien. Parametro hauek onartzen dira hizkuntzaren arabera: <code>para</code>, <code>for</code>, <code>pour</code>, <code>per</code>, <code>für</code> (edo <code>fur</code>).<br>Adibidea: "https://password.es/id/eu/?para=Hotel%20California".</p>
+				</div>
+			</details>
+			<details>
+				<summary>Dohainik al da?</summary>
+				<div class="respuesta">
+					<p>Bai, orria erabiltzeak ez du kostu bakarra ere.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Dagoeneko AArekin ezin den kendu ur-marka sortzen duen beste sistema bat erabiltzen dut</summary>
+				<div class="respuesta">
+					<p>Tamalez, horrek ez du benetan zure NAN babesten. Delinkuente batek ez du ur-marka kendu behar. Datu guztiak ikusgai dauden kopia bat ematen badiozu, pertsona horrek Photoshop bezalako programa bat irekiko du NAN txantiloi garbi batekin eta gainean zure datu guztiak idatziko ditu.</p>
+					<p>Beraz, egin kasu poliziak esaten duenari eta ezkutatu zure NANeko datuak partekatu aurretik. Eta ziurtatu beti benetan beharrezkoa dela NAN bidaltzea eta jasotzen duen enpresa/pertsona esaten duena dela.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Arazo/ideia bat daukat, nola jar naiteke harremanetan?</summary>
+				<div class="respuesta">
+					<p>"Issue" bat sor dezakezu <a href="https://github.com/AlfonsoML/proteccionDNI/issues" target="_blank">proiektuaren GitHuben</a>, edo <a rel="me" href="https://mastodon.social/@alfonsoml" target="_blank">Mastodon bidez egin dezakezu</a>.</p>
 				</div>
 			</details>
 		</aside>
 	</main>
 
 	<footer>
-		<span data-i18n="footer.privacy">Orri honek ez du daturik biltzen. Ez da daturik inora bidaltzen. Ez dira cookieak ez hirugarrenen zerbitzuak erabiltzen.</span>
+		<span>Orri honek ez du daturik biltzen. Ez da daturik inora bidaltzen. Ez dira cookieak ez hirugarrenen zerbitzuak erabiltzen.</span>
 		<div class="footer-links">
-			<a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank"><span data-i18n="footer.original">Jatorrizko proiektua</span>: AlfonsoML</a>
+			<a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">Jatorrizko proiektua: AlfonsoML</a>
 			<span class="footer-separator">|</span>
-			<span><span data-i18n="footer.improvements">Hobekuntzak</span> <a href="https://carrero.es" target="_blank">David Carrero</a></span>
+			<span>Hobekuntzak <a href="https://carrero.es" target="_blank">David Carrero</a></span>
 			<span class="footer-separator">|</span>
-			<a href="https://github.com/dcarrero/proteccionDNI" target="_blank" data-i18n="footer.github">Web hau GitHuben</a>
+			<a href="https://github.com/dcarrero/proteccionDNI" target="_blank">Web hau GitHuben</a>
 		</div>
 	</footer>
 
-	<!-- Scripts: i18n eta theme lehenago kargatu behar dira -->
 	<script type="text/javascript" src="../i18n.js"></script>
 	<script type="text/javascript" src="../theme.js"></script>
 	<script type="text/javascript" src="../formatos.js"></script>

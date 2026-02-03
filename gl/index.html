@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../estilos.css">
 	<link href="../favicon.ico" rel="icon">
-	<meta name="keywords" content="DNI, seguridade, compartir DNI, protección DNI, ID protection, passport">
-	<meta name="description" content="Protexe o teu DNI antes de compartilo. Oculta datos privados, engade marca de auga personalizada. Ferramenta gratuíta, 100% offline, sen envío de datos.">
+	<meta name="keywords" content="DNI, seguridade, compartir DNI, protección DNI, documento identidade, privacidade">
+	<meta name="description" content="Protexe o teu DNI antes de compartilo. Oculta datos privados, engade marca de auga personalizada. Ferramenta gratuíta, 100% offline.">
 	<meta name="robots" content="index, follow">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,12 +16,8 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://password.es/id/gl/">
 	<meta property="og:title" content="ID: Protección DNI - Protexe o teu documento de identidade">
-	<meta property="og:description" content="Protexe o teu DNI antes de compartilo. Oculta datos privados, engade marca de auga personalizada. Ferramenta gratuíta, 100% offline.">
+	<meta property="og:description" content="Protexe o teu DNI antes de compartilo. Oculta datos privados, engade marca de auga personalizada.">
 	<meta property="og:site_name" content="ID: Protección DNI">
-	<meta property="og:image" content="https://password.es/id/ejemplos/ejemplo-protegido.webp">
-	<meta property="og:image:width" content="1000">
-	<meta property="og:image:height" content="625">
-	<meta property="og:image:alt" content="Exemplo de DNI protexido">
 	<link rel="canonical" href="https://password.es/id/gl/" />
 	<link rel="alternate" hreflang="es" href="https://password.es/id/" />
 	<link rel="alternate" hreflang="en" href="https://password.es/id/en/" />
@@ -33,17 +29,13 @@
 	<link rel="alternate" hreflang="pt" href="https://password.es/id/pt/" />
 	<link rel="alternate" hreflang="de" href="https://password.es/id/de/" />
 	<link rel="alternate" hreflang="x-default" href="https://password.es/id/" />
-
 	<link rel="manifest" href="../manifest.webmanifest">
-	<!-- Si se usa el fichero en local, hay que quitar esta linea, esto debería ser un HTTP Header pero GitHub pages no lo soportan https://github.com/orgs/community/discussions/54257 -->
 	<meta id="MetaCSP" http-equiv="Content-Security-Policy" content="script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self'; img-src 'self' blob: data:; media-src 'none'; font-src 'self'; connect-src data:; frame-src 'none'; object-src 'none'; form-action 'none'; " />
 	<meta http-equiv="X-Content-Type-Options" content="nosniff" />
 </head>
 <body>
-	<!-- Barra de controles superior -->
 	<div class="top-controls">
 		<h1 class="site-title">ID: Protección DNI</h1>
-		<!-- Selector de idioma -->
 		<select id="LanguageSelect" aria-label="Seleccionar idioma">
 			<option value="es">Español</option>
 			<option value="ca">Català</option>
@@ -55,143 +47,98 @@
 			<option value="pt">Português</option>
 			<option value="de">Deutsch</option>
 		</select>
-
-		<!-- Toggle de tema -->
-		<button type="button" id="ThemeToggle" class="control-btn theme-auto" data-i18n-title="theme.auto" title="Tema automático">
-			<!-- Icono Auto (sol+luna) -->
-			<svg class="icon-auto" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8V4z"/>
-			</svg>
-			<!-- Icono Sol (tema claro) -->
-			<svg class="icon-light" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 7a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-7v2m0 16v2M4 12H2m4.22-5.78L4.81 4.81m12.97 0-1.41 1.41M20 12h2m-4.22 5.78 1.41 1.41M6.22 17.78 4.81 19.19"/>
-			</svg>
-			<!-- Icono Luna (tema oscuro) -->
-			<svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20">
-				<path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7 7 7 0 0 0 7 7 7 7 0 0 0 4.87-1.97A9 9 0 0 1 10.03 7.13 7 7 0 0 0 12 5z"/>
-			</svg>
+		<button type="button" id="ThemeToggle" class="control-btn theme-auto" title="Tema automático">
+			<svg class="icon-auto" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8V4z"/></svg>
+			<svg class="icon-light" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-7v2m0 16v2M4 12H2m4.22-5.78L4.81 4.81m12.97 0-1.41 1.41M20 12h2m-4.22 5.78 1.41 1.41M6.22 17.78 4.81 19.19"/></svg>
+			<svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7 7 7 0 0 0 7 7 7 7 0 0 0 4.87-1.97A9 9 0 0 1 10.03 7.13 7 7 0 0 0 12 5z"/></svg>
 		</button>
 	</div>
 
 	<main>
 		<section id="introduccion" class="informacion">
-			<p data-i18n="intro.p1">
-				Esta páxina permíteche ocultar facilmente os <a href="#porque" class="AbrirInfo">datos privados do teu DNI</a>.
-				Ás veces pódenche pedir unha copia do DNI, pero o que non hai que facer é mandalles unha foto tal cal xa que se cae en malas mans pode causarche graves problemas.
-			</p>
-			<p data-i18n="intro.p2">Aquí podes bloquear os datos que non son necesarios e sobreescribir un texto para que non o poidan utilizar con outros propósitos, desta maneira a imaxe que compartas será única para evitar que a reutilicen.</p>
+			<p>Esta páxina permíteche ocultar facilmente os <a href="#porque" class="AbrirInfo">datos privados do teu DNI</a>. Ás veces pódenche pedir unha copia do DNI, pero o que non hai que facer é mandalles unha foto tal cal xa que se cae en malas mans pode causarche graves problemas.</p>
+			<p>Aquí podes bloquear os datos que non son necesarios e sobreescribir un texto para que non o poidan utilizar con outros propósitos, desta maneira a imaxe que compartas será única para evitar que a reutilicen.</p>
 			<p>
-				<span data-i18n="intro.p3">Para comezar, preme no botón de elixir foto e continúa cos pasos seguintes.</span><br>
-				<span data-i18n="intro.p3.offline">Todo este proceso realízase unicamente no teu navegador, non se envían os datos a ningunha parte.</span>
+				<span>Para comezar, preme no botón de elixir foto e continúa cos pasos seguintes.</span><br>
+				<span>Todo este proceso realízase unicamente no teu navegador, non se envían os datos a ningunha parte.</span>
 			</p>
 		</section>
 		<noscript>
-			<p data-i18n="noscript">
-				Esta páxina necesita que actives o Javascript para poder executala. Todo o proceso faise no teu navegador e é imprescindible o uso de javascript.
-			</p>
-			<style type="text/css">
-				noscript p {
-					margin: 2em;
-					font-weight: bold;
-					text-align: center;
-				}
-
-				#pasos {
-					display: none;
-				}
-			</style>
+			<p>Esta páxina necesita que actives o Javascript para poder executala. Todo o proceso faise no teu navegador e é imprescindible o uso de javascript.</p>
+			<style type="text/css">noscript p{margin:2em;font-weight:bold;text-align:center;}#pasos{display:none;}</style>
 		</noscript>
 		<section id="pasos">
-			<a id="cerrar" data-i18n-title="nav.close" title="Pechar progreso"><svg viewBox="0 0 12 12" role="presentation"><path d="M1,1 l 10,10 M1,11 l 10,-10" /></svg></a>
+			<a id="cerrar" title="Pechar progreso"><svg viewBox="0 0 12 12" role="presentation"><path d="M1,1 l 10,10 M1,11 l 10,-10" /></svg></a>
 			<div class="wizard-container">
 				<div class="wizard-progress">
-					<div class="step in-progress" id="step1">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.photo">Foto</span>
-					</div>
-					<div class="step" id="step2">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.type">Tipo</span>
-					</div>
-					<div class="step" id="step3">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.position">Posición</span>
-					</div>
-					<div class="step" id="step4">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.text">Texto</span>
-					</div>
-					<div class="step" id="step5">
-						<div class="node"></div>
-						<span class="step-name" data-i18n="step.save">Gardar</span>
-					</div>
+					<div class="step in-progress" id="step1"><div class="node"></div><span class="step-name">Foto</span></div>
+					<div class="step" id="step2"><div class="node"></div><span class="step-name">Tipo</span></div>
+					<div class="step" id="step3"><div class="node"></div><span class="step-name">Posición</span></div>
+					<div class="step" id="step4"><div class="node"></div><span class="step-name">Texto</span></div>
+					<div class="step" id="step5"><div class="node"></div><span class="step-name">Gardar</span></div>
 				</div>
 				<div class="wizard-percentage">
-					<div class="percentage-bar">
-						<div class="percentage-fill" id="wizardProgress"></div>
-					</div>
+					<div class="percentage-bar"><div class="percentage-fill" id="wizardProgress"></div></div>
 					<span class="percentage-text" id="wizardPercentage">0%</span>
 				</div>
 			</div>
 
 			<details id="paso1" name="paso" open>
-				<summary data-i18n="step1.title">Foto</summary>
+				<summary>Foto</summary>
 				<div>
-					<p class="centrado"><button class="btn BotonPrincipal" type="button" id="ElegirFoto"><span data-i18n="step1.button">Elixe a foto</span></button></p>
-					<div id="DivFichero"><input type="file" id="SelectorFichero" accept="image/*" title="Selector de foto (non visible)" tabindex="-1" aria-hidden="true"></div>
+					<p class="centrado"><button class="btn BotonPrincipal" type="button" id="ElegirFoto"><span>Elixe a foto</span></button></p>
+					<div id="DivFichero"><input type="file" id="SelectorFichero" accept="image/*" title="Selector de foto" tabindex="-1" aria-hidden="true"></div>
 				</div>
 			</details>
 			<details id="paso2" name="paso">
-				<summary data-i18n="step2.title">Tipo de foto</summary>
+				<summary>Tipo de foto</summary>
 				<div>
-					<p data-i18n="step2.description">
-						Elixe se estás usando a foto dianteira ou traseira do DNI; podes axustar o tamaño e posición do DNI a continuación.
-					</p>
-					<div><label for="Formato" data-i18n="step2.format.label">Tipo de foto</label> <select id="Formato"></select></div>
-					<div id="DivValidez" class="CampoCheckbox Oculto"><label for="Validez" data-i18n="step2.validity.label">Ocultar Data de Nacemento, Validez e Nº Soporte</label> <span><input type="checkbox" id="Validez"> <a href="#OcultarNumeroSoporte" id="AyudaOcultarNumeroSoporte" class="AbrirInfo" data-i18n="step2.validity.help">que é isto?</a></span></div>
-					<div id="DivMascaraDni" class="CampoCheckbox Oculto"><label for="EnmascararDni" data-i18n="step2.mask.label">Ocultar parcialmente o DNI</label> <span><input type="checkbox" id="EnmascararDni"> <a href="#OcultarParcialmente" id="AyudaOcultarParcialmente" class="AbrirInfo" data-i18n="step2.mask.help">que é isto?</a></span></div>
+					<p>Elixe se estás a usar a foto dianteira ou traseira do DNI; podes axustar o tamaño e posición do DNI a continuación.</p>
+					<div><label for="Formato">Tipo de foto</label> <select id="Formato"></select></div>
+					<div id="DivValidez" class="CampoCheckbox Oculto"><label for="Validez">Ocultar Data de Nacemento, Validez e Nº Soporte</label> <span><input type="checkbox" id="Validez"> <a href="#OcultarNumeroSoporte" class="AbrirInfo">que é isto?</a></span></div>
+					<div id="DivMascaraDni" class="CampoCheckbox Oculto"><label for="EnmascararDni">Ocultar parcialmente o DNI</label> <span><input type="checkbox" id="EnmascararDni"> <a href="#OcultarParcialmente" class="AbrirInfo">que é isto?</a></span></div>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="1"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Anterior</span></span></button>
-						<button class="btn adelante" type="button" data-siguiente="3"><span><span data-i18n="nav.next">Seguinte</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="1"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Anterior</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="3"><span><span>Seguinte</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso3" name="paso">
-				<summary data-i18n="step3.title">Posición</summary>
+				<summary>Posición</summary>
 				<div>
-					<p data-i18n="step3.description">Axusta a orientación e posición para que o DNI se vexa correctamente.</p>
+					<p>Axusta a orientación e posición para que o DNI se vexa correctamente.</p>
 					<div id="ControlesDesplazamiento">
-						<div class="ContenedorControl"><label for="Zoom" data-i18n="step3.zoom">Achegar</label> <input type="range" min="0.8" max="2" id="Zoom" value="1" step="any"></div>
-						<div class="ContenedorControl"><label for="Rotacion" data-i18n="step3.rotate">Rotar</label> <input type="range" min="-10" max="10" id="Rotacion" value="0" step="any"></div>
-						<div class="ContenedorControl"><label for="Horizontal" data-i18n="step3.horizontal">Desp. Horizontal</label> <input type="range" min="-200" max="200" id="Horizontal" value="0"></div>
-						<div class="ContenedorControl"><label for="Vertical" data-i18n="step3.vertical">Desp. Vertical</label> <input type="range" min="-200" max="200" id="Vertical" value="0"></div>
+						<div class="ContenedorControl"><label for="Zoom">Achegar</label> <input type="range" min="0.8" max="2" id="Zoom" value="1" step="any"></div>
+						<div class="ContenedorControl"><label for="Rotacion">Xirar</label> <input type="range" min="-10" max="10" id="Rotacion" value="0" step="any"></div>
+						<div class="ContenedorControl"><label for="Horizontal">Desp. Horizontal</label> <input type="range" min="-200" max="200" id="Horizontal" value="0"></div>
+						<div class="ContenedorControl"><label for="Vertical">Desp. Vertical</label> <input type="range" min="-200" max="200" id="Vertical" value="0"></div>
 					</div>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="2"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Anterior</span></span></button>
-						<button class="btn adelante BotonPrincipal" type="button" data-siguiente="4"><span><span data-i18n="nav.next">Seguinte</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="2"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Anterior</span></span></button>
+						<button class="btn adelante BotonPrincipal" type="button" data-siguiente="4"><span><span>Seguinte</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso4" name="paso">
-				<summary data-i18n="step4.title">Texto</summary>
+				<summary>Texto</summary>
 				<div>
-					<p data-i18n="step4.description">Escribe un texto para engadir sobre a imaxe.</p>
-					<div class="ContenedorControl"><label for="Destinatario" data-i18n="step4.recipient.label">Destinatario:</label> <input type="text" id="Destinatario" data-i18n-placeholder="step4.recipient.placeholder" placeholder="Ex: Hotel California, Banco X..."></div>
-					<div class="ContenedorControl"><label for="Watermark" data-i18n="step4.watermark.label">Texto completo:</label> <input type="text" id="Watermark" data-i18n-placeholder="step4.watermark.default" value="Copia para …"></div>
-					<p class="texto-ayuda" data-i18n="step4.help">O destinatario engádese automaticamente ao texto. Podes editar o texto completo directamente.</p>
+					<p>Escribe un texto para engadir sobre a imaxe.</p>
+					<div class="ContenedorControl"><label for="Destinatario">Destinatario:</label> <input type="text" id="Destinatario" placeholder="Ex: Hotel California, Banco X..."></div>
+					<div class="ContenedorControl"><label for="Watermark">Texto completo:</label> <input type="text" id="Watermark" value="Copia para …"></div>
+					<p class="texto-ayuda">O destinatario engádese automaticamente ao texto. Podes editar o texto completo directamente.</p>
 					<div class="Siguiente">
-						<button class="btn atras" type="button" data-siguiente="3"><span><svg viewBox="0 0 24 24" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg><span data-i18n="nav.previous">Anterior</span></span></button>
-						<button class="btn adelante" type="button" data-siguiente="5"><span><span data-i18n="nav.next">Seguinte</span><svg viewBox="0 0 24 24" role="presentation"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg></span></button>
+						<button class="btn atras" type="button" data-siguiente="3"><span><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg><span>Anterior</span></span></button>
+						<button class="btn adelante" type="button" data-siguiente="5"><span><span>Seguinte</span><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></button>
 					</div>
 				</div>
 			</details>
 			<details id="paso5" name="paso">
-				<summary data-i18n="step5.title">Gardar</summary>
+				<summary>Gardar</summary>
 				<div>
-					<p data-i18n="step5.description">Elixe agora se queres gardar a imaxe ou directamente compartila cunha app (se o teu navegador o soporta).</p>
+					<p>Elixe agora se queres gardar a imaxe ou directamente compartila cunha app (se o teu navegador o soporta).</p>
 					<p class="centrado">
-						<button class="btn BotonPrincipal" type="button" id="Guardar"><span><span data-i18n="step5.save">Gardar</span><svg viewBox="0 0 24 24" role="presentation"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" /></svg></span></button>
-						<button class="btn BotonPrincipal" type="button" id="Compartir"><span><span data-i18n="step5.share">Compartir</span><svg viewBox="0 0 24 24" role="presentation"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 00-3 3 3 3 0 003 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0018 16.08z" /></svg></span></button>
+						<button class="btn BotonPrincipal" type="button" id="Guardar"><span><span>Gardar</span><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></span></button>
+						<button class="btn BotonPrincipal" type="button" id="Compartir"><span><span>Compartir</span><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 00-3 3 3 3 0 003 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0018 16.08z"/></svg></span></button>
 					</p>
 					<a id="grabar"></a>
 				</div>
@@ -200,23 +147,23 @@
 				<canvas id="canvas" width="1000" height="625"></canvas>
 				<div id="ControlesPosicion" class="ControlesSuperpuestos">
 					<div class="BloqueBotones">
-						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateLeft" title="Xirar á Esquerda" data-giro="-90"><svg viewBox="0 0 24 24"><path d="M13 4.07V1L8.45 5.55 13 10V6.09a6 6 0 0 1 0 11.82v2.02a7.99 7.99 0 0 0 0-15.86M7.1 18.32a7.92 7.92 0 0 0 3.9 1.61V17.9a5.91 5.91 0 0 1-2.46-1.03L7.1 18.32M6.09 13H4.07a7.9 7.9 0 0 0 1.62 3.89l1.41-1.42A6 6 0 0 1 6.09 13m1.02-4.47L5.7 7.11A7.92 7.92 0 0 0 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47Z" /></svg></button>
-						<button type="button" class="IconoAccion girar" data-i18n-title="controls.rotateRight" title="Xirar á Dereita" data-giro="90"><svg viewBox="0 0 24 24"><path d="m16.89 15.5 1.42 1.39A7.9 7.9 0 0 0 19.93 13h-2.02a6.08 6.08 0 0 1-1.02 2.5M13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03m6.93-6.9a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47m-2.36-5.45L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45Z" /></svg></button>
+						<button type="button" class="IconoAccion girar" title="Xirar á Esquerda" data-giro="-90"><svg viewBox="0 0 24 24"><path d="M13 4.07V1L8.45 5.55 13 10V6.09a6 6 0 0 1 0 11.82v2.02a7.99 7.99 0 0 0 0-15.86M7.1 18.32a7.92 7.92 0 0 0 3.9 1.61V17.9a5.91 5.91 0 0 1-2.46-1.03L7.1 18.32M6.09 13H4.07a7.9 7.9 0 0 0 1.62 3.89l1.41-1.42A6 6 0 0 1 6.09 13m1.02-4.47L5.7 7.11A7.92 7.92 0 0 0 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47Z"/></svg></button>
+						<button type="button" class="IconoAccion girar" title="Xirar á Dereita" data-giro="90"><svg viewBox="0 0 24 24"><path d="m16.89 15.5 1.42 1.39A7.9 7.9 0 0 0 19.93 13h-2.02a6.08 6.08 0 0 1-1.02 2.5M13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03m6.93-6.9a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47m-2.36-5.45L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45Z"/></svg></button>
 					</div>
-					<button type="button" id="Resetear" class="IconoAccion" data-i18n-title="controls.reset" title="Desfacer cambios de tamaño e posición"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" /></svg></button>
+					<button type="button" id="Resetear" class="IconoAccion" title="Desfacer cambios de tamaño e posición"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></button>
 				</div>
 				<div id="ControlesPantalla" class="ControlesSuperpuestos">
-					<button type="button" id="Expandir" class="IconoAccion" data-i18n-title="controls.expand" title="Ampliar a pantalla completa"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5V5m9 0h5v5h-2V7h-3V5m3 9h2v5h-5v-2h3v-3m-7 3v2H5v-5h2v3h3Z" /></svg></button>
-					<button type="button" id="Colapsar" class="IconoAccion" data-i18n-title="controls.collapse" title="Volver á vista normal"><svg viewBox="0 0 24 24"><path d="M14 14h5v2h-3v3h-2v-5m-9 0h5v5H8v-3H5v-2m3-9h2v5H5V8h3V5m11 3v2h-5V5h2v3h3Z" /></svg></button>
+					<button type="button" id="Expandir" class="IconoAccion" title="Ampliar a pantalla completa"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5V5m9 0h5v5h-2V7h-3V5m3 9h2v5h-5v-2h3v-3m-7 3v2H5v-5h2v3h3Z"/></svg></button>
+					<button type="button" id="Colapsar" class="IconoAccion" title="Volver a vista normal"><svg viewBox="0 0 24 24"><path d="M14 14h5v2h-3v3h-2v-5m-9 0h5v5H8v-3H5v-2m3-9h2v5H5V8h3V5m11 3v2h-5V5h2v3h3Z"/></svg></button>
 				</div>
 			</div>
 		</section>
 
 		<aside id="FAQ" class="informacion">
-			<h2 data-i18n="faq.title">Preguntas e respostas</h2>
+			<h2>Preguntas e respostas</h2>
 			<details>
-				<summary data-i18n="faq.q1">Que fai a páxina?</summary>
-				<div class="respuesta" data-i18n="faq.a1">
+				<summary>Que fai a páxina?</summary>
+				<div class="respuesta">
 					<p>Trátase de seguir os pasos que recomenda a policía para protexer o teu DNI, sen necesidade de que teñas que acordarte de todos e saber que datos son importantes.</p>
 					<ol>
 						<li>Elixe unha foto do teu DNI. A imaxe convértese a branco e negro e limítase o seu tamaño para non dar unha copia de alta calidade.</li>
@@ -228,154 +175,90 @@
 				</div>
 			</details>
 			<details id="porque">
-				<summary data-i18n="faq.q2">Por que usala?</summary>
+				<summary>Por que usala?</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a2.part1">
-						Compartir o teu DNI ten o risco de que acabe en malas mans e sufras unha <a href="https://maldita.es/malditateexplica/20220619/dni-enviar-foto-suplantacion/" target="_blank">suplantación de identidade</a>.
-						A nivel xeral, as empresas <b>non</b> deberían ter acceso á maioría de datos do teu DNI. Podes ler este pdf co
-						<a href="https://www.aepd.es/documento/2023-0048.pdf" target="_blank">informe 48/2023 da <abbr title="Axencia Española de Protección de Datos">AEPD</abbr></a>.
-						Xa se deron casos de <a href="https://www.pymelegal.es/noticias/aepd/la-proteccion-de-datos-y-el-dni" target="_blank">sancións a empresas</a>, polo que se lle mandas esa ligazón
-						á empresa que che pida o DNI tal vez o pense dúas veces.<br>
-						E desde logo, a nivel particular non ten sentido que lle mandes unha copia ou foto do teu DNI a outra persoa. Sospeita se alguén che pide un DNI para unha compra-venda!<br>
-					</p>
-					<p data-i18n="faq.a2.part2">
-						Se tes claro que necesitas envíarlles o DNI, o que hai que facer é seguir as <a href="https://www.rtve.es/noticias/20240604/pixelar-datos-recomendaciones-expertos-compartir-dni-internet/16132816.shtml" target="_blank">
-							directrices da Policía Nacional
-						</a>, de forma que esa copia estea en branco e negro, oculte os datos que non son necesarios para identificarte e se sobreescriba un texto para que o uso sexa único.<br>
-						Iso é precisamente o que fai esta páxina de forma automatizada.
-					</p>
-					<p data-i18n="faq.a2.part3">
-						Se te manexas ben coa informática, ti podes realizar os mesmos pasos que se fan nesta páxina.<br>
-						Se pola contra non adoitas usar programas de edición gráfica, esta páxina facilítache esas tarefas.<br>
-						Incluso se ti es das persoas ás que isto lle parece trivial, pensa nos teus familiares, amizades, ...<br>
-						Parécete máis sinxelo explicarlles como facer estas operacións pola súa conta, ou enviarlles unha ligazón ou un zip para que o poidan facer de forma automatizada?.
-					</p>
+					<p>Compartir o teu DNI ten o risco de que acabe en malas mans e sufras unha suplantación de identidade. A nivel xeral, as empresas <b>non</b> deberían ter acceso á maioría de datos do teu DNI.</p>
+					<p>Se tes claro que necesitas enviarlles o DNI, o que hai que facer é seguir as directrices da Policía Nacional, de forma que esa copia estea en branco e negro, oculte os datos que non son necesarios para identificarte e se sobreescriba un texto para que o uso sexa único.</p>
+					<p>Aínda que a ti che pareza trivial, pensa nos teus familiares, amizades... Parécelle máis sinxelo explicarlles como facer estas operacións pola súa conta, ou enviarlles unha ligazón para que o poidan facer de forma automatizada?</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q3">Podo fiarme de que non vas facer nada co meu DNI?</summary>
-				<div class="respuesta" data-i18n="faq.a3">
+				<summary>Podo fiarme de que non vas facer nada co meu DNI?</summary>
+				<div class="respuesta">
 					<p>A páxina non almacena ningún dato, non se usan cookies, non se usa ningún servizo de terceiros e o teu DNI só se procesa no teu móbil/ordenador.</p>
-					<p>
-						O código fonte podes velo premendo F12, non está encriptado nin minimizado de ningunha forma. Ademais <a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">está dispoñible en GitHub</a>,
-						podes descargarte <a href="https://github.com/AlfonsoML/proteccionDNI/archive/refs/heads/main.zip" target="_blank">todo o código completo</a>.<br>
-						Se queres ter a máxima seguridade, gárdache a páxina no teu ordenador/móbil e así sabes que o código non se vai modificar xamais.
-					</p>
+					<p>O código fonte podes velo premendo F12, non está encriptado nin minimizado de ningunha forma. Ademais <a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">está dispoñible en GitHub</a>. Se queres ter a máxima seguridade, garda a páxina no teu dispositivo.</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q4">Estou seguro tras protexer así o DNI?</summary>
-				<div class="respuesta" data-i18n="faq.a4">
-					<p>
-						Non, a pesar de ocultar os datos máis privados, sempre tes que ter coidado cando deas o teu DNI a calquera empresa ou persoa.
-						<a href="https://www.incibe.es/ciudadania/blog/precauciones-tener-en-cuenta-si-vas-enviar-tu-dni-por-internet" target="_blank">Podes ler aquí as recomendacións de <abbr title="Instituto Nacional de Ciberseguridade">INCIBE</abbr></a><br>
-						É como dicir "Pechei a porta con chave ao saír da casa", iso é mellor que deixar a porta aberta de par en par, pero un ladrón pode usar unha ganzúa, etc...
-						ao pechar con chave evitas os problemas máis básicos pero non é unha seguridade completa.
-					</p>
+				<summary>Estou seguro tras protexer así o DNI?</summary>
+				<div class="respuesta">
+					<p>Non, a pesar de ocultar os datos máis privados, sempre tes que ter coidado cando deas o teu DNI a calquera empresa ou persoa. É como dicir "Pechei con chave a porta ao saír de casa", iso é mellor que deixar a porta aberta de par en par, pero un ladrón pode usar unha ganzúa, etc.</p>
 				</div>
 			</details>
 			<details id="OcultarNumeroSoporte">
-				<summary data-i18n="faq.q5">Debo usar "Ocultar Data de Nacemento, Validez e Nº Soporte"?</summary>
-				<div class="respuesta" data-i18n="faq.a5">
-					<p>
-						Estes datos vos poden solicitar para facer un "check-in" en aloxamentos e verificar que o DNI está en vigor segundo o Real Decreto 933/2021.
-						No seu momento <a href="https://papafrikifeed.duckdns.org/@PapaFriki/episodes/ppf-wwwprotegemidnies-con-alfonso-martinez" target="_blank">Papá Friki</a>
-						comentoume que en ocasións o dato de Nº Soporte pode ser útil para verificar que non é un DNI falsificado, e por iso tamén pode ser necesario deixalo visible.
-					</p>
+				<summary>Debo usar "Ocultar Data de Nacemento, Validez e Nº Soporte"?</summary>
+				<div class="respuesta">
+					<p>Estes datos pódenvos solicitar para facer un "check-in" en aloxamentos e verificar que o DNI está en vigor. O Nº Soporte pode ser útil para verificar que non é un DNI falsificado.</p>
 				</div>
 			</details>
 			<details id="OcultarParcialmente">
-				<summary data-i18n="faq.q6">Para que serve "Ocultar parcialmente o DNI"?</summary>
-				<div class="respuesta" data-i18n="faq.a6">
-					<p>
-						Seguramente non necesitarás activar esta opción. No número de DNI ocúltanse as 3 primeiras e 2 últimas cifras segundo a <a href="https://www.aepd.es/sites/default/files/2019-09/orientaciones-da7.pdf" target="_blank">orientación para a aplicación provisional da disposición adicional sétima da LOPDGDD</a><br>
-						Podes ler a solicitude e caso de uso en <a href="https://github.com/AlfonsoML/proteccionDNI/issues/12" target="_blank">a solicitude</a>.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q7">Pídenme unha copia que non teña marcas de auga</summary>
-				<div class="respuesta" data-i18n="faq.a7">
-					<p>
-						Nese caso abonda con que deixes en branco o texto e o que se fará é converter a branco e negro, ocultar as partes privadas pero non se sobreescribirá
-						ningún texto.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q8">Podo probar sen usar o meu DNI?</summary>
+				<summary>Para que serve "Ocultar parcialmente o DNI"?</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a8">
-						Na <a href="../test.html">páxina de probas</a> tes as imaxes de exemplo dos diversos formatos de DNI. Preme en calquera delas e iniciarase o proceso.
-					</p>
+					<p>Seguramente non necesitarás activar esta opción. No número de DNI ocúltanse as 3 primeiras e 2 últimas cifras segundo as directrices de protección de datos.</p>
 				</div>
 			</details>
 			<details>
-				<summary data-i18n="faq.q9">Podo ligar a esta páxina?</summary>
-				<div class="respuesta" data-i18n="faq.a9">
-					<p>
-						Si, no caso de que necesites pedir aos teus usuarios que che manden unha copia do DNI (asegúrate primeiro de que realmente a
-						necesitas), podes ligar con esta páxina para que así che envíen unha copia xa protexida e non che cheguen datos privados.
-					</p>
-					<p>
-						Ademais, nese caso podes ligar a páxina cun parámetro que lles encha xa o destinatario da copia. Acéptanse os seguintes parámetros segundo o idioma: <code>para</code>, <code>for</code>, <code>pour</code>, <code>per</code>, <code>für</code> (ou <code>fur</code>).<br>
-						Exemplo: "https://password.es/id/?para=Hotel%20California" ou "https://password.es/id/en/?for=Hotel%20California".<br>
-						Naturalmente o usuario sempre poderá modificar ese texto, simplemente lles pode facilitar un pouco máis o proceso.
-					</p>
-				</div>
-			</details>
-			<details>
-				<summary data-i18n="faq.q10">É de balde?</summary>
-				<div class="respuesta" data-i18n="faq.a10">
-					<p>
-						Si, usar a páxina non ten ningún custo.
-					</p>
-				</div>
-			</details>
-			<details id="IA_o_no_IA">
-				<summary data-i18n="faq.q11">Xa uso outro sistema que xera unha marca de auga que non se pode quitar con <abbr title="Intelixencia Artificial">IA</abbr></summary>
+				<summary>Pídenme unha copia que non teña marcas de auga</summary>
 				<div class="respuesta">
-					<p data-i18n="faq.a11.part1">
-						Lamentablemente, iso non está protexendo realmente o teu DNI, de feito pode que agora os teus datos estean menos seguros que antes xa que o
-						<a href="https://gl.wikipedia.org/wiki/Teatro_de_seguridade" target="_blank">teatro de seguridade</a> fai pensar que ese sistema está protexendo
-						os teus datos cando non é así.
-					</p>
-					<p data-i18n="faq.a11.part2">
-						A realidade é que un delincuente non necesita quitar a marca de auga.<br />
-						Se ti lle entregas unha copia na cal están visibles todos os teus datos,
-						esa persoa abrirá un programa como Photoshop cunha plantilla limpa dun DNI, escribirá por riba todos os teus datos de Nº DNI, nome, apelidos,
-						data de expedición, caducidade, etc., pode que queira poñer a súa propia foto e ademais estará moi agradecido de que lle ensines exactamente como é a túa sinatura
-						para poder replicala sen problemas cando queira asinar algo.
-					</p>
-					<p data-i18n="faq.a11.part3">
-						Polo tanto, fai caso ao que di a policía e oculta os datos do teu DNI antes de compartilo. E asegúrate sempre de que realmente é
-						necesario enviarlles o DNI e que a empresa/persoa á que llo envías é quen di ser.
-					</p>
+					<p>Nese caso abonda con que deixes en branco o texto e o que se fará é converter a branco e negro, ocultar as partes privadas pero non se sobreescribirá ningún texto.</p>
 				</div>
 			</details>
-			<details id="Contacto">
-				<summary data-i18n="faq.q12">Teño un problema/idea, como me poño en contacto?</summary>
-				<div class="respuesta" data-i18n="faq.a12">
-					<p>
-						Podes crear un "issue" no <a href="https://github.com/AlfonsoML/proteccionDNI/issues" target="_blank">GitHub do proxecto</a>, ou podes <a rel="me" href="https://mastodon.social/@alfonsoml" target="_blank">facelo en Mastodon</a>.
-					</p>
+			<details>
+				<summary>Podo probar sen usar o meu DNI?</summary>
+				<div class="respuesta">
+					<p>Na <a href="../test.html">páxina de probas</a> tes as imaxes de exemplo dos diversos formatos de DNI. Preme en calquera delas e iniciarase o proceso.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Podo ligar a esta páxina?</summary>
+				<div class="respuesta">
+					<p>Si, no caso de que necesites pedir aos teus usuarios que che manden unha copia do DNI (asegúrate primeiro de que realmente a necesitas), podes ligar con esta páxina para que así che envíen unha copia xa protexida.</p>
+					<p>Ademais, podes ligar a páxina cun parámetro que lles encha xa o destinatario: <code>para</code>, <code>for</code>, <code>pour</code>, <code>per</code>, <code>für</code>.<br>Exemplo: "https://password.es/id/gl/?para=Hotel%20California".</p>
+				</div>
+			</details>
+			<details>
+				<summary>É de balde?</summary>
+				<div class="respuesta">
+					<p>Si, usar a páxina non ten ningún custo.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Xa uso outro sistema que xera unha marca de auga que non se pode quitar con IA</summary>
+				<div class="respuesta">
+					<p>Lamentablemente, iso non está protexendo realmente o teu DNI. Un delincuente non necesita quitar a marca de auga. Se ti lle entregas unha copia na cal están visibles todos os teus datos, esa persoa abrirá un programa como Photoshop cunha plantilla limpa dun DNI e escribirá por riba todos os teus datos.</p>
+					<p>Polo tanto, fai caso ao que di a policía e oculta os datos do teu DNI antes de compartilo.</p>
+				</div>
+			</details>
+			<details>
+				<summary>Teño un problema/idea, como me poño en contacto?</summary>
+				<div class="respuesta">
+					<p>Podes crear un "issue" no <a href="https://github.com/AlfonsoML/proteccionDNI/issues" target="_blank">GitHub do proxecto</a>, ou podes <a rel="me" href="https://mastodon.social/@alfonsoml" target="_blank">facelo en Mastodon</a>.</p>
 				</div>
 			</details>
 		</aside>
 	</main>
 
 	<footer>
-		<span data-i18n="footer.privacy">Esta páxina non recolle ningún dato. Non se envían datos a ningunha parte. Non se usan cookies nin servizos de terceiros.</span>
+		<span>Esta páxina non recolle ningún dato. Non se envían datos a ningunha parte. Non se usan cookies nin servizos de terceiros.</span>
 		<div class="footer-links">
-			<a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank"><span data-i18n="footer.original">Proxecto orixinal</span>: AlfonsoML</a>
+			<a href="https://github.com/AlfonsoML/proteccionDNI/" target="_blank">Proxecto orixinal: AlfonsoML</a>
 			<span class="footer-separator">|</span>
-			<span><span data-i18n="footer.improvements">Melloras por</span> <a href="https://carrero.es" target="_blank">David Carrero</a></span>
+			<span>Melloras por <a href="https://carrero.es" target="_blank">David Carrero</a></span>
 			<span class="footer-separator">|</span>
-			<a href="https://github.com/dcarrero/proteccionDNI" target="_blank" data-i18n="footer.github">Esta web en GitHub</a>
+			<a href="https://github.com/dcarrero/proteccionDNI" target="_blank">Esta web en GitHub</a>
 		</div>
 	</footer>
 
-	<!-- Scripts: i18n y theme deben cargarse antes -->
 	<script type="text/javascript" src="../i18n.js"></script>
 	<script type="text/javascript" src="../theme.js"></script>
 	<script type="text/javascript" src="../formatos.js"></script>
